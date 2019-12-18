@@ -15,12 +15,43 @@ COLOR_DICT = np.array([Charbonniere, Talus, Unlabelled])
 # Fusion of binary masks into a colored unique one
 def maskFusion():
     for file in os.listdir("data/img"):
-        # Charbonniere
-        charboMask = Image.open("data/charbonniere/" + file);
-        # Talus
-        talusMask = Image.open("data/talus/" + file);
 
-        print("data/charbonniere/" + file)
+        # Masque charbonniere
+        charboMaskArray = io.imread("data/charbonniere/" + file);
+
+        # Masque talus
+        talusMaskArray = io.imread("data/talus/" + file);
+
+        # Nouveau masque
+        newMask = Image.new('RGB', (400, 400), color='white')
+        newMaskArray = np.array(newMask)
+        print(charboMaskArray.shape)
+
+        # talus
+        for x in range(charboMaskArray.shape[0]):  # Width
+            if x >= 400:
+                continue
+            for y in range(charboMaskArray.shape[1]):  # Height
+                if y >= 400:
+                    continue
+                if talusMaskArray[x, y] == False:  # Pixel noir
+                    newMaskArray[x, y] = Talus
+
+        # Charbonniere
+        for x in range(charboMaskArray.shape[0]): # Width
+            if x >= 400:
+                continue
+            for y in range(charboMaskArray.shape[1]): # Height
+                if y >= 400:
+                    continue
+                if charboMaskArray[x,y] == False: # Pixel noir
+                    newMaskArray[x,y] = Charbonniere
+
+        # Création de l'image
+        newImage = "data/classes/" + file.split(".")[0] + ".png"
+        io.imsave(newImage, newMaskArray)
+        print(newImage)
+    print("Done !")
 
 maskFusion();
 
