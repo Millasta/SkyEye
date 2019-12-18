@@ -1,0 +1,203 @@
+Document for developer
+======================
+
+Install Project
+---------------
+
+You can find the project on this `git`_. If you need authorization, please contact jean-yves.ramel@univ-tours.fr,
+ronan.guillaume@etu.univ-tours.fr or shuo.bai@etu.univ-tours.fr
+
+.. _git: https://gitlab.com/PetitBai/SkyEye
+
+Structure
+---------
+
+Class Diagram
+
+.. figure::  images/class_diagram.png
+   :align:   center
+
+The code is divided into 3 packages :
+
+- ImageProcessing
+- FeatureExtraction
+- MachineLearning
+
+The main entrance lies in ``./SkyEye/config/main``.
+
+Naming Conventions
+------------------
+
+Followed `PEP 8 -- Style Guide for Python Code <https://www.python.org/dev/peps/pep-0008/#naming-conventions/>`_.
+
+Names to Avoid
+++++++++++++++
+
+Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as
+single character variable names.
+
+In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to
+use 'l', use 'L' instead.
+
+Package Names
++++++++++++++
+
+Python packages should have short, all-lowercase names, although the use of underscores is discouraged.
+e.g. ``lowercase``
+
+Module Names
+++++++++++++
+
+Modules should have short, all-lowercase names. Underscores can be used in the module name if it
+improves readability. e.g. ``lowercase`` or ``lower_case_with_underscores``
+
+Class Names
++++++++++++
+
+Class names should normally use the ``CapWords`` convention.
+
+Function Names
+++++++++++++++
+
+Function names should be lowercase, with words separated by underscores as necessary to improve
+readability. e.g. ``lowercase or lower_case_with_underscores``
+
+Variables
++++++++++
+
+Use the function naming rules: lowercase with words separated by underscores as necessary to improve
+readability. e.g. ``lowercase or lower_case_with_underscores``
+
+Constants
++++++++++
+
+Constants are usually defined on a module level and written in all capital letters with underscores
+separating words. e.g. ``MAX_OVERFLOW or TOTAL`` .
+
+Code documentation
+------------------
+
+We use Sphinx to generate the documentation. To build it,
+you just need to open a terminal in ``./SkyEye/docs`` and run this command :
+
+``make html``
+
+.. figure::  images/SphinxBuild.png
+   :align:   center
+
+Then, open this file on your web navigator : ``./SkyEye/docs/_build/html/index.html``.
+
+This kind of documentation uses rst files, to learn more about how to use it, please read the `Sphinx documentation`_.
+
+.. _Sphinx documentation: http://www.sphinx-doc.org/en/stable/contents.html
+
+Use of libraries
+----------------
+
+Framework: Python 3.5.1
++++++++++++++++++++++++
+
+Python is an interpreted high-level programming language for general-purpose programming.
+Created by Guido van Rossum and first released in 1991,
+Python has a design philosophy that emphasizes code readability,
+and a syntax that allows programmers to express concepts in fewer lines of code, notably using significant whitespace.
+It provides constructs that enable clear programming on both small and large scales.
+
+Source : `Python (programming language) - Wikipedia <https://en.wikipedia.org/wiki/Python_(programming_language)>`_
+
+OpenCV 3.1.0-dev
+++++++++++++++++
+
+OpenCV is used to processing images. I intended to use the built-in SVM in OpenCV which turned out to be
+too old version. Then I use another SVM library. So OpenCV could be replaced to a lighter pure-python
+library.
+
+Matplotlib 1.5.3
+++++++++++++++++
+
+Matplotlib is used to to plot all figures.
+
+Scikit-learn 0.18.1
++++++++++++++++++++
+
+Scikit-learn is a free software machine learning library for the Python programming language. It features
+various classification, regression and clustering algorithms including SVMs, random forests, gradient
+boosting, k-means and DBSCAN, and is designed to interoperate with the Python numerical and scientific
+libraries NumPy and SciPy.
+
+Scikit-image 0.12.3
++++++++++++++++++++
+
+Scikit-image is an open source image processing library for the Python programming language. It includes
+algorithms for segmentation, geometric transformations, color space manipulation, analysis, filtering,
+morphology, feature detection, and more. It is designed to interoperate with the Python numerical and
+scientific libraries NumPy and SciPy.
+
+Numpy 1.12.0
+++++++++++++
+
+NumPy is an extension to the Python programming language, adding support for large, multi-dimensional
+arrays and matrices, along with a large library of high-level mathematical functions to operate on these
+arrays.
+
+Scipy 0.19.0
+++++++++++++
+
+SciPy is an open source Python library used for scientific computing and technical computing.
+
+Sphinx 1.5.1
+++++++++++++
+
+Sphinx is used to generate documentations.
+
+Treelib 1.5.1
++++++++++++++
+
+Treelib is used to create Tree structure. We will use it to create the required structure for our workspace.
+
+Versioning
+----------
+
+- Public online repository : Gitlab. The project can be cloned without any authentication.
+
+        ``git clone https://gitlab.com/PetitBai/SkyEye.git``
+
+Dev - Env
+---------
+
+- IDE : PyCharm
+- OS : Windows 10
+
+Tests
+-----
+
+unittest is a built-in module in Python, which is used to implement tests in this software.
+All the test code lies in ./tests .
+
+Utilization with Python Interpreter
+-----------------------------------
+
+Workspace
++++++++++
+
+In your Python Interpreter, you can use the workspace by import it : ::
+
+   from program.model.workspace import Workspace
+
+Then, you will be able to create a workspace : ::
+
+   workspace = Workspace("My\\Path\\to\\my\\workspace")
+   workspace.init()
+
+.. warning:: You must call the init function before calling any other function.
+
+After creating your workspace, you will be able to use its features :
+
+- workspace.is_faithful() : Returns if the workspace is faithful or not, normally the init function makes it faithful.
+- workspace.create_required_structure() : Create all the missing folders into the workspace, you can test it without using the init function before and by using an empty folder as the workspace.
+- workspace.find_class_names() : Returns the list of class you will classify.
+- workspace.find_training_image_names() : Returns the list of image which can be used as training images.
+- workspace.generate_csv_dictionary() : Generates and stores a CSV file containing all the labelled pixels from all training images.
+- workspace.update() : if you change something into your workspace (add a class, add images...) you can update the workspace's attributes.
+
+.. seealso:: Link to the :ref:`code documentation<code_label>`.

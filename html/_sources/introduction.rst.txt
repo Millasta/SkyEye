@@ -1,0 +1,12 @@
+Introduction
+================
+
+Author : Ronan GUILLAUME - Shuo BAI
+Tutor : Jean-Yves RAMEL
+Date : 2016.09 - 2018.04
+
+This software present the work of the Research & Development project.
+The objective of the project is to set up a system to detect archaeological remains on images derived from LiDAR data.
+An approach using SVM is proposed in order to obtain the maps indicating for each pixel the probability of belonging to
+a type of archaeological objects sought. To implement our approach,
+this software is developed which allows to detect 5 different classes of lineaments in the LiDAR images of Chambord.

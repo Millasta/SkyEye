@@ -1,0 +1,325 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document for developer &#8212; PRD 2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Code Analyse" href="code.html" />
+    <link rel="prev" title="User Manual" href="user_manual.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="Code Analyse"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="user_manual.html" title="User Manual"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PRD 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="document-for-developer">
+<h1>Document for developer<a class="headerlink" href="#document-for-developer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-project">
+<h2>Install Project<a class="headerlink" href="#install-project" title="Permalink to this headline">¶</a></h2>
+<p>You can find the project on this <a class="reference external" href="https://gitlab.com/PetitBai/SkyEye">git</a>. If you need authorization, please contact <a class="reference external" href="mailto:jean-yves&#46;ramel&#37;&#52;&#48;univ-tours&#46;fr">jean-yves<span>&#46;</span>ramel<span>&#64;</span>univ-tours<span>&#46;</span>fr</a>,
+<a class="reference external" href="mailto:ronan&#46;guillaume&#37;&#52;&#48;etu&#46;univ-tours&#46;fr">ronan<span>&#46;</span>guillaume<span>&#64;</span>etu<span>&#46;</span>univ-tours<span>&#46;</span>fr</a> or <a class="reference external" href="mailto:shuo&#46;bai&#37;&#52;&#48;etu&#46;univ-tours&#46;fr">shuo<span>&#46;</span>bai<span>&#64;</span>etu<span>&#46;</span>univ-tours<span>&#46;</span>fr</a></p>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>Class Diagram</p>
+<div class="figure align-center">
+<img alt="_images/class_diagram.png" src="_images/class_diagram.png" />
+</div>
+<p>The code is divided into 3 packages :</p>
+<ul class="simple">
+<li>ImageProcessing</li>
+<li>FeatureExtraction</li>
+<li>MachineLearning</li>
+</ul>
+<p>The main entrance lies in <code class="docutils literal notranslate"><span class="pre">./SkyEye/config/main</span></code>.</p>
+</div>
+<div class="section" id="naming-conventions">
+<h2>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">¶</a></h2>
+<p>Followed <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#naming-conventions/">PEP 8 – Style Guide for Python Code</a>.</p>
+<div class="section" id="names-to-avoid">
+<h3>Names to Avoid<a class="headerlink" href="#names-to-avoid" title="Permalink to this headline">¶</a></h3>
+<p>Never use the characters ‘l’ (lowercase letter el), ‘O’ (uppercase letter oh), or ‘I’ (uppercase letter eye) as
+single character variable names.</p>
+<p>In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to
+use ‘l’, use ‘L’ instead.</p>
+</div>
+<div class="section" id="package-names">
+<h3>Package Names<a class="headerlink" href="#package-names" title="Permalink to this headline">¶</a></h3>
+<p>Python packages should have short, all-lowercase names, although the use of underscores is discouraged.
+e.g. <code class="docutils literal notranslate"><span class="pre">lowercase</span></code></p>
+</div>
+<div class="section" id="module-names">
+<h3>Module Names<a class="headerlink" href="#module-names" title="Permalink to this headline">¶</a></h3>
+<p>Modules should have short, all-lowercase names. Underscores can be used in the module name if it
+improves readability. e.g. <code class="docutils literal notranslate"><span class="pre">lowercase</span></code> or <code class="docutils literal notranslate"><span class="pre">lower_case_with_underscores</span></code></p>
+</div>
+<div class="section" id="class-names">
+<h3>Class Names<a class="headerlink" href="#class-names" title="Permalink to this headline">¶</a></h3>
+<p>Class names should normally use the <code class="docutils literal notranslate"><span class="pre">CapWords</span></code> convention.</p>
+</div>
+<div class="section" id="function-names">
+<h3>Function Names<a class="headerlink" href="#function-names" title="Permalink to this headline">¶</a></h3>
+<p>Function names should be lowercase, with words separated by underscores as necessary to improve
+readability. e.g. <code class="docutils literal notranslate"><span class="pre">lowercase</span> <span class="pre">or</span> <span class="pre">lower_case_with_underscores</span></code></p>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>Use the function naming rules: lowercase with words separated by underscores as necessary to improve
+readability. e.g. <code class="docutils literal notranslate"><span class="pre">lowercase</span> <span class="pre">or</span> <span class="pre">lower_case_with_underscores</span></code></p>
+</div>
+<div class="section" id="constants">
+<h3>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h3>
+<p>Constants are usually defined on a module level and written in all capital letters with underscores
+separating words. e.g. <code class="docutils literal notranslate"><span class="pre">MAX_OVERFLOW</span> <span class="pre">or</span> <span class="pre">TOTAL</span></code> .</p>
+</div>
+</div>
+<div class="section" id="code-documentation">
+<h2>Code documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h2>
+<p>We use Sphinx to generate the documentation. To build it,
+you just need to open a terminal in <code class="docutils literal notranslate"><span class="pre">./SkyEye/docs</span></code> and run this command :</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code></p>
+<div class="figure align-center">
+<img alt="_images/SphinxBuild.png" src="_images/SphinxBuild.png" />
+</div>
+<p>Then, open this file on your web navigator : <code class="docutils literal notranslate"><span class="pre">./SkyEye/docs/_build/html/index.html</span></code>.</p>
+<p>This kind of documentation uses rst files, to learn more about how to use it, please read the <a class="reference external" href="http://www.sphinx-doc.org/en/stable/contents.html">Sphinx documentation</a>.</p>
+</div>
+<div class="section" id="use-of-libraries">
+<h2>Use of libraries<a class="headerlink" href="#use-of-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="framework-python-3-5-1">
+<h3>Framework: Python 3.5.1<a class="headerlink" href="#framework-python-3-5-1" title="Permalink to this headline">¶</a></h3>
+<p>Python is an interpreted high-level programming language for general-purpose programming.
+Created by Guido van Rossum and first released in 1991,
+Python has a design philosophy that emphasizes code readability,
+and a syntax that allows programmers to express concepts in fewer lines of code, notably using significant whitespace.
+It provides constructs that enable clear programming on both small and large scales.</p>
+<p>Source : <a class="reference external" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python (programming language) - Wikipedia</a></p>
+</div>
+<div class="section" id="opencv-3-1-0-dev">
+<h3>OpenCV 3.1.0-dev<a class="headerlink" href="#opencv-3-1-0-dev" title="Permalink to this headline">¶</a></h3>
+<p>OpenCV is used to processing images. I intended to use the built-in SVM in OpenCV which turned out to be
+too old version. Then I use another SVM library. So OpenCV could be replaced to a lighter pure-python
+library.</p>
+</div>
+<div class="section" id="matplotlib-1-5-3">
+<h3>Matplotlib 1.5.3<a class="headerlink" href="#matplotlib-1-5-3" title="Permalink to this headline">¶</a></h3>
+<p>Matplotlib is used to to plot all figures.</p>
+</div>
+<div class="section" id="scikit-learn-0-18-1">
+<h3>Scikit-learn 0.18.1<a class="headerlink" href="#scikit-learn-0-18-1" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-learn is a free software machine learning library for the Python programming language. It features
+various classification, regression and clustering algorithms including SVMs, random forests, gradient
+boosting, k-means and DBSCAN, and is designed to interoperate with the Python numerical and scientific
+libraries NumPy and SciPy.</p>
+</div>
+<div class="section" id="scikit-image-0-12-3">
+<h3>Scikit-image 0.12.3<a class="headerlink" href="#scikit-image-0-12-3" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-image is an open source image processing library for the Python programming language. It includes
+algorithms for segmentation, geometric transformations, color space manipulation, analysis, filtering,
+morphology, feature detection, and more. It is designed to interoperate with the Python numerical and
+scientific libraries NumPy and SciPy.</p>
+</div>
+<div class="section" id="numpy-1-12-0">
+<h3>Numpy 1.12.0<a class="headerlink" href="#numpy-1-12-0" title="Permalink to this headline">¶</a></h3>
+<p>NumPy is an extension to the Python programming language, adding support for large, multi-dimensional
+arrays and matrices, along with a large library of high-level mathematical functions to operate on these
+arrays.</p>
+</div>
+<div class="section" id="scipy-0-19-0">
+<h3>Scipy 0.19.0<a class="headerlink" href="#scipy-0-19-0" title="Permalink to this headline">¶</a></h3>
+<p>SciPy is an open source Python library used for scientific computing and technical computing.</p>
+</div>
+<div class="section" id="sphinx-1-5-1">
+<h3>Sphinx 1.5.1<a class="headerlink" href="#sphinx-1-5-1" title="Permalink to this headline">¶</a></h3>
+<p>Sphinx is used to generate documentations.</p>
+</div>
+<div class="section" id="treelib-1-5-1">
+<h3>Treelib 1.5.1<a class="headerlink" href="#treelib-1-5-1" title="Permalink to this headline">¶</a></h3>
+<p>Treelib is used to create Tree structure. We will use it to create the required structure for our workspace.</p>
+</div>
+</div>
+<div class="section" id="versioning">
+<h2>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Public online repository : Gitlab. The project can be cloned without any authentication.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://gitlab.com/PetitBai/SkyEye.git</span></code></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="dev-env">
+<h2>Dev - Env<a class="headerlink" href="#dev-env" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>IDE : PyCharm</li>
+<li>OS : Windows 10</li>
+</ul>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>unittest is a built-in module in Python, which is used to implement tests in this software.
+All the test code lies in ./tests .</p>
+</div>
+<div class="section" id="utilization-with-python-interpreter">
+<h2>Utilization with Python Interpreter<a class="headerlink" href="#utilization-with-python-interpreter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="workspace">
+<h3>Workspace<a class="headerlink" href="#workspace" title="Permalink to this headline">¶</a></h3>
+<p>In your Python Interpreter, you can use the workspace by import it :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">program.model.workspace</span> <span class="k">import</span> <span class="n">Workspace</span>
+</pre></div>
+</div>
+<p>Then, you will be able to create a workspace :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">workspace</span> <span class="o">=</span> <span class="n">Workspace</span><span class="p">(</span><span class="s2">&quot;My</span><span class="se">\\</span><span class="s2">Path</span><span class="se">\\</span><span class="s2">to</span><span class="se">\\</span><span class="s2">my</span><span class="se">\\</span><span class="s2">workspace&quot;</span><span class="p">)</span>
+<span class="n">workspace</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You must call the init function before calling any other function.</p>
+</div>
+<p>After creating your workspace, you will be able to use its features :</p>
+<ul class="simple">
+<li>workspace.is_faithful() : Returns if the workspace is faithful or not, normally the init function makes it faithful.</li>
+<li>workspace.create_required_structure() : Create all the missing folders into the workspace, you can test it without using the init function before and by using an empty folder as the workspace.</li>
+<li>workspace.find_class_names() : Returns the list of class you will classify.</li>
+<li>workspace.find_training_image_names() : Returns the list of image which can be used as training images.</li>
+<li>workspace.generate_csv_dictionary() : Generates and stores a CSV file containing all the labelled pixels from all training images.</li>
+<li>workspace.update() : if you change something into your workspace (add a class, add images…) you can update the workspace’s attributes.</li>
+</ul>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Link to the <a class="reference internal" href="code.html#code-label"><span class="std std-ref">code documentation</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Document for developer</a><ul>
+<li><a class="reference internal" href="#install-project">Install Project</a></li>
+<li><a class="reference internal" href="#structure">Structure</a></li>
+<li><a class="reference internal" href="#naming-conventions">Naming Conventions</a><ul>
+<li><a class="reference internal" href="#names-to-avoid">Names to Avoid</a></li>
+<li><a class="reference internal" href="#package-names">Package Names</a></li>
+<li><a class="reference internal" href="#module-names">Module Names</a></li>
+<li><a class="reference internal" href="#class-names">Class Names</a></li>
+<li><a class="reference internal" href="#function-names">Function Names</a></li>
+<li><a class="reference internal" href="#variables">Variables</a></li>
+<li><a class="reference internal" href="#constants">Constants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-documentation">Code documentation</a></li>
+<li><a class="reference internal" href="#use-of-libraries">Use of libraries</a><ul>
+<li><a class="reference internal" href="#framework-python-3-5-1">Framework: Python 3.5.1</a></li>
+<li><a class="reference internal" href="#opencv-3-1-0-dev">OpenCV 3.1.0-dev</a></li>
+<li><a class="reference internal" href="#matplotlib-1-5-3">Matplotlib 1.5.3</a></li>
+<li><a class="reference internal" href="#scikit-learn-0-18-1">Scikit-learn 0.18.1</a></li>
+<li><a class="reference internal" href="#scikit-image-0-12-3">Scikit-image 0.12.3</a></li>
+<li><a class="reference internal" href="#numpy-1-12-0">Numpy 1.12.0</a></li>
+<li><a class="reference internal" href="#scipy-0-19-0">Scipy 0.19.0</a></li>
+<li><a class="reference internal" href="#sphinx-1-5-1">Sphinx 1.5.1</a></li>
+<li><a class="reference internal" href="#treelib-1-5-1">Treelib 1.5.1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#versioning">Versioning</a></li>
+<li><a class="reference internal" href="#dev-env">Dev - Env</a></li>
+<li><a class="reference internal" href="#tests">Tests</a></li>
+<li><a class="reference internal" href="#utilization-with-python-interpreter">Utilization with Python Interpreter</a><ul>
+<li><a class="reference internal" href="#workspace">Workspace</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="user_manual.html"
+                        title="previous chapter">User Manual</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="code.html"
+                        title="next chapter">Code Analyse</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dev_manual.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="code.html" title="Code Analyse"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="user_manual.html" title="User Manual"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PRD 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Ronan GUILLAUME.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.0.
+    </div>
+  </body>
+</html>

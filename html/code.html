@@ -1,0 +1,2542 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Code Analyse &#8212; PRD 2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Document for developer" href="dev_manual.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dev_manual.html" title="Document for developer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PRD 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="code-analyse">
+<span id="code-label"></span><h1>Code Analyse<a class="headerlink" href="#code-analyse" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="package-datastructure">
+<h2>Package - datastructure<a class="headerlink" href="#package-datastructure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-program.model.datastructure.evaluation">
+<span id="module-evaluation"></span><h3>Module - evaluation<a class="headerlink" href="#module-program.model.datastructure.evaluation" title="Permalink to this headline">¶</a></h3>
+<p>This module represents the result of an evaluation for our recognition models</p>
+<div class="section" id="class-evaluation">
+<h4>Class - Evaluation<a class="headerlink" href="#class-evaluation" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.datastructure.evaluation.Evaluation">
+<em class="property">class </em><code class="descclassname">program.model.datastructure.evaluation.</code><code class="descname">Evaluation</code><span class="sig-paren">(</span><em>recognition_rate: float</em>, <em>confusion_matrix</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.evaluation.Evaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents the result of an evaluation for our recognition models. It contains :</p>
+<ul class="simple">
+<li>The recognition rate of the trained model</li>
+<li>The recognition matrix with the correct answers vertically and the predicted results horizontally</li>
+</ul>
+<dl class="method">
+<dt id="program.model.datastructure.evaluation.Evaluation.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>recognition_rate: float</em>, <em>confusion_matrix</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.evaluation.Evaluation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an evaluation object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>recognition_rate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – The recognition rate of the trained model (between 0 and 1)</li>
+<li><strong>confusion_matrix</strong> (<em>A numpy matrix</em>) – The matrix with the correct answers vertically and the predicted results horizontally</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.evaluation.Evaluation.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.datastructure.evaluation.Evaluation.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.evaluation.Evaluation.recognition_matrix_to_string">
+<code class="descname">recognition_matrix_to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#program.model.datastructure.evaluation.Evaluation.recognition_matrix_to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string which described the matrix in this format :</p>
+<blockquote>
+<div><p>[[1 2 3 4 5]</p>
+<p>[6 7 8 9 10]</p>
+<p>[11 12 13 14 15]</p>
+<p>[16 17 18 19 20]</p>
+<p>[21 22 23 24 25]]</p>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The string which described the matrix</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-program.model.datastructure.feature_table">
+<span id="module-feature-table"></span><h3>Module - feature_table<a class="headerlink" href="#module-program.model.datastructure.feature_table" title="Permalink to this headline">¶</a></h3>
+<p>This module contains the required classes to define the result of a feature extraction.</p>
+<div class="section" id="class-individual">
+<h4>Class - Individual<a class="headerlink" href="#class-individual" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.datastructure.feature_table.Individual">
+<em class="property">class </em><code class="descclassname">program.model.datastructure.feature_table.</code><code class="descname">Individual</code><span class="sig-paren">(</span><em>label: str, sample: [&lt;class 'float'&gt;], pixel: (&lt;class 'int'&gt;, &lt;class 'int'&gt;)</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.feature_table.Individual" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents an object which we will use to train the model or predict it. It contains :</p>
+<ul class="simple">
+<li>The label of the individual (for the training)</li>
+<li>The list of all the values extracted</li>
+<li>The individual’s coordinates</li>
+</ul>
+<dl class="method">
+<dt id="program.model.datastructure.feature_table.Individual.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>label: str, sample: [&lt;class 'float'&gt;], pixel: (&lt;class 'int'&gt;, &lt;class 'int'&gt;)</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.feature_table.Individual.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an individual object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>label</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The label of the individual (for the training)</li>
+<li><strong>sample</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – The list of all the values extracted</li>
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – The individual’s coordinates</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.feature_table.Individual.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.datastructure.feature_table.Individual.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-featuretable">
+<h4>Class - FeatureTable<a class="headerlink" href="#class-featuretable" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.datastructure.feature_table.FeatureTable">
+<em class="property">class </em><code class="descclassname">program.model.datastructure.feature_table.</code><code class="descname">FeatureTable</code><span class="sig-paren">(</span><em>csv_path: str = None</em>, <em>list_features: [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;] = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents an object which we will store in our CSV files. It contains a list of Individuals.</p>
+<dl class="method">
+<dt id="program.model.datastructure.feature_table.FeatureTable.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>csv_path: str = None</em>, <em>list_features: [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;] = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a FeatureTable object from a CSV file or an empty FeatureTable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>csv_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em> or </em><em>None</em>) – The path to the CSV file.</li>
+<li><strong>list_features</strong> (<em>[</em><a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature"><em>DefinitionFeature</em></a><em>]</em>) – A list of DefinitionFeature in order to extract from the CSV file only the required features</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.feature_table.FeatureTable.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.feature_table.FeatureTable.add_individual">
+<code class="descname">add_individual</code><span class="sig-paren">(</span><em>individual: program.model.datastructure.feature_table.Individual</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable.add_individual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an individual to the FeatureTable’s list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>individual</strong> (<a class="reference internal" href="#program.model.datastructure.feature_table.Individual" title="program.model.datastructure.feature_table.Individual"><em>Individual</em></a>) – The individual to add.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Nothing, the individual has been added to the FeatureTable’s individual list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.feature_table.FeatureTable.get_labels_and_samples">
+<code class="descname">get_labels_and_samples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable.get_labels_and_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the labels and samples in another format just to be used by our recognition models.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The labels and the samples in two separate lists.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">([<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a>], [<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)">float</a>])</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.feature_table.FeatureTable.pop_individual">
+<code class="descname">pop_individual</code><span class="sig-paren">(</span><em>position: int</em><span class="sig-paren">)</span> &#x2192; program.model.datastructure.feature_table.Individual<a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable.pop_individual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete and return an individual from the individuals list. This method will be used to generate
+a random data set by the image feature extractor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>position</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The index of the individual to pop.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The right individual</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#program.model.datastructure.feature_table.Individual" title="program.model.datastructure.feature_table.Individual">Individual</a></td>
+</tr>
+</tbody>
+</table>
+<p>:except If the list is empty or the position is out of range, an IndexError will be thrown.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.feature_table.FeatureTable.save_to_csv">
+<code class="descname">save_to_csv</code><span class="sig-paren">(</span><em>directory_path: str, file_name: str, feature_names: [&lt;class 'str'&gt;], nb_decimals: int = 2</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable.save_to_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the FeatureTable into a CSV file with this structure :</p>
+<p>Class;x;y;MinD_9x9;NumD_9x9;NumW_9x9</p>
+<p>C0;1;4;1;144.81;9.44</p>
+<p>Talus-fosse;1;46;0;94.44;15.74</p>
+<p>C0;3;2;1;144.81;9.44</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>directory_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The directory where to store the CSV file.</li>
+<li><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the CSV file.</li>
+<li><strong>feature_names</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – The list of the name of the features in order to write it as headers.</li>
+<li><strong>nb_decimals</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of digits</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nothing, a CSV file has been stored in /directory_path/file_name.csv</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.feature_table.FeatureTable.size">
+<code class="descname">size</code><a class="headerlink" href="#program.model.datastructure.feature_table.FeatureTable.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of Individuals in the FeatureTable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The number of Individuals in the FeatureTable</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-program.model.datastructure.image">
+<span id="module-image"></span><h3>Module - image<a class="headerlink" href="#module-program.model.datastructure.image" title="Permalink to this headline">¶</a></h3>
+<p>This module is a wrapper of image processing.</p>
+<div class="section" id="class-image">
+<h4>Class - Image<a class="headerlink" href="#class-image" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.datastructure.image.Image">
+<em class="property">class </em><code class="descclassname">program.model.datastructure.image.</code><code class="descname">Image</code><span class="sig-paren">(</span><em>image_file_path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.image.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents the <strong>image</strong> processed in the system which contains</p>
+<ul class="simple">
+<li>file path for loading or saving the image</li>
+<li>OpenCV image to manipulate</li>
+<li>image information such as height, weight, size, etc</li>
+</ul>
+<dl class="method">
+<dt id="program.model.datastructure.image.Image.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>image_file_path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.image.Image.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image_file_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – path to the image file</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>img.shape returns</p>
+<ul class="last simple">
+<li>a tuple of 3 values if img is color : img.height(y), img.width(x) and img.channels .</li>
+<li>a tuple of 2 values if img is gray scale : img.height(y), img.width(x) and img.channels .</li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_core/py_basic_ops/py_basic_ops.html#accessing-image-properties">Basic Operations on OpenCV Images</a></p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.image.Image.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.datastructure.image.Image.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.datastructure.image.Image.compare_images">
+<em class="property">static </em><code class="descname">compare_images</code><span class="sig-paren">(</span><em>image_2</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.image.Image.compare_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show two images in order to compare them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_1</strong> (<em>OpenCV Image</em>) – The first image to show</li>
+<li><strong>image_2</strong> (<em>OpenCV Image</em>) – The second image to show</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nothing, a new window has been opened containing the two images.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.image.Image.get_pixel_gray_value">
+<code class="descname">get_pixel_gray_value</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.image.Image.get_pixel_gray_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the gray value of a pixel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the gray value of the pixel</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.image.Image.get_rect">
+<code class="descname">get_rect</code><span class="sig-paren">(</span><em>x: int</em>, <em>y: int</em>, <em>width: int</em>, <em>height: int</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.image.Image.get_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a rectangle area of image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – horizon position of up-left starting point</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – vertical position of up-left starting point</li>
+<li><strong>width</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the width of the rectangle</li>
+<li><strong>height</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the height of the rectangle</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the rectangle area</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">OpenCV</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the Rect detects an edge, it will auto-reduce the size to reach the edge.</p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Verify x, y, w, h are all valid numbers.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.image.Image.get_region_of_image">
+<code class="descname">get_region_of_image</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>mask_size: int</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.image.Image.get_region_of_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the NxN roi around the pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the size N</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the Region Of Image</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">OpenCV Image</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Keep the mark_size an odd number.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.image.Image.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.image.Image.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the image in a individual window powered by matplotlib.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Pointing at a pixel of the shown image, you can see its position and color values.</li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">While displaying an image using <strong>matplot</strong>, multi-parameter is supported.
+For more specific parameters, see <a class="reference external" href="http://matplotlib.org/users/image_tutorial.html">image tutorial of matplotlib</a></p>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.datastructure.image.Image.show_single_image">
+<em class="property">static </em><code class="descname">show_single_image</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.image.Image.show_single_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows the image into a window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> (<em>OpenCV Image</em>) – The OpenCV image to show.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Nothing, a window has been opened containing the image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-program.model.datastructure.labeled_pixel">
+<span id="module-labeled-pixel"></span><h3>Module - labeled_pixel<a class="headerlink" href="#module-program.model.datastructure.labeled_pixel" title="Permalink to this headline">¶</a></h3>
+<p>This module contains the class LabeledPixel which define a labeled pixel from a training image.</p>
+<div class="section" id="class-labeledpixel">
+<h4>Class - LabeledPixel<a class="headerlink" href="#class-labeledpixel" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel">
+<em class="property">class </em><code class="descclassname">program.model.datastructure.labeled_pixel.</code><code class="descname">LabeledPixel</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>label: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represent a row of our dictionary. This class will be used into sets,
+so we need to override all the methods to compare two LabeledPixel. It contains :</p>
+<blockquote>
+<div><ul class="simple">
+<li>The coordinates of the pixel</li>
+<li>The label of the pixel</li>
+</ul>
+</div></blockquote>
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is equals to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If the objects are equals or not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__ge__">
+<code class="descname">__ge__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__ge__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is superior or equals to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If the object (self) is superior to the object other</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__gt__">
+<code class="descname">__gt__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__gt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is superior to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If the object (self) is superior to the object other</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__hash__">
+<code class="descname">__hash__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hash our object in order to obtain an id from our object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The id of our object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>label: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a labeled pixel object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – The coordinates of the pixel</li>
+<li><strong>label</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The label of the pixel</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__le__">
+<code class="descname">__le__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__le__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is inferior or equals to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If the object (self) is inferior to the object other</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__lt__">
+<code class="descname">__lt__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__lt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is inferior to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If the object (self) is inferior to the object other</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__ne__">
+<code class="descname">__ne__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__ne__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is not equals to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">!self.__eq__(other)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a description of the object.</p>
+<p>(x y), label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A description of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.labeled_pixel.LabeledPixel.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.datastructure.labeled_pixel.LabeledPixel.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-program.model.datastructure.prediction">
+<span id="module-prediction"></span><h3>Module - prediction<a class="headerlink" href="#module-program.model.datastructure.prediction" title="Permalink to this headline">¶</a></h3>
+<p>This module contains the definition of classes which will be used as the result of a prediction from
+our recognition models</p>
+<div class="section" id="class-predictionpixel">
+<h4>Class - PredictionPixel<a class="headerlink" href="#class-predictionpixel" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.datastructure.prediction.PredictionPixel">
+<em class="property">class </em><code class="descclassname">program.model.datastructure.prediction.</code><code class="descname">PredictionPixel</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;, &lt;class 'int'&gt;), probabilities: [&lt;class 'float'&gt;], label: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.prediction.PredictionPixel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class will define a predicted pixel (after a prediction from the recognition model). It contains :</p>
+<ul class="simple">
+<li>The coordinates of the pixel</li>
+<li>A list of probabilities (0-1) to belong to each classes</li>
+<li>The label of the predicted class max(probability)</li>
+</ul>
+<dl class="method">
+<dt id="program.model.datastructure.prediction.PredictionPixel.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;, &lt;class 'int'&gt;), probabilities: [&lt;class 'float'&gt;], label: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.prediction.PredictionPixel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PredictionPixel object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – The coordinates of the pixel</li>
+<li><strong>probabilities</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – The list of probabilities</li>
+<li><strong>label</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The class name predicted</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.prediction.PredictionPixel.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.datastructure.prediction.PredictionPixel.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-prediction">
+<h4>Class - Prediction<a class="headerlink" href="#class-prediction" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.datastructure.prediction.Prediction">
+<em class="property">class </em><code class="descclassname">program.model.datastructure.prediction.</code><code class="descname">Prediction</code><span class="sig-paren">(</span><em>image_name: str</em>, <em>csv_file_path: str = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.prediction.Prediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represent the result of a prediction from the recognition model. It contains :</p>
+<ul class="simple">
+<li>The image name</li>
+<li>The path to the csv</li>
+<li>The image’s height</li>
+<li>The image’s width</li>
+<li>A list of PredictedPixel</li>
+</ul>
+<dl class="method">
+<dt id="program.model.datastructure.prediction.Prediction.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>image_name: str</em>, <em>csv_file_path: str = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.prediction.Prediction.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Prediction without any predicted pixels or parse the CSV file (used for result builders)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_name</strong> – The image name</li>
+<li><strong>csv_file_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path to the CSV file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.datastructure.prediction.Prediction.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.datastructure.prediction.Prediction.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.prediction.Prediction.add_prediction">
+<code class="descname">add_prediction</code><span class="sig-paren">(</span><em>prediction_pixel: program.model.datastructure.prediction.PredictionPixel</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.datastructure.prediction.Prediction.add_prediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a predicted pixel to the list, we also use this function to retrieve the image size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prediction_pixel</strong> (<a class="reference internal" href="#program.model.datastructure.prediction.PredictionPixel" title="program.model.datastructure.prediction.PredictionPixel"><em>PredictionPixel</em></a>) – The predicted pixel to add</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Nothing, a predicted pixel has been added to the list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.datastructure.prediction.Prediction.save_to_csv">
+<code class="descname">save_to_csv</code><span class="sig-paren">(</span><em>directory_path: str, file_name: str, class_names: [&lt;class 'str'&gt;], nb_decimals: int = 4</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.datastructure.prediction.Prediction.save_to_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the object into a csv file with this structure :</p>
+<p>x;y;C0;Chemin_creux;Fosse;Talus;Talus-fosse;Trame_actuelle;Class predicted</p>
+<p>81;46;0.0486;0.299;0.0036;0.485;0.1069;0.0569;Talus</p>
+<p>111;27;0.1639;0.3234;0.0007;0.4923;0.0115;0.0081;Talus</p>
+<p>111;26;0.1238;0.4041;0.006;0.428;0.0135;0.0246;Talus</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The predicted pixels will not be sorted</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>directory_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path where to store the CSV file</li>
+<li><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The file name to use</li>
+<li><strong>class_names</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – The class names to define the headers</li>
+<li><strong>nb_decimals</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of digits</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nothing, the CSV file has been stored in the right directory</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="package-featureextraction">
+<h2>Package - featureextraction<a class="headerlink" href="#package-featureextraction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-program.model.featureextraction.feature">
+<span id="module-feature"></span><h3>Module - feature<a class="headerlink" href="#module-program.model.featureextraction.feature" title="Permalink to this headline">¶</a></h3>
+<p>This module contains all the classes to define our features.</p>
+<p>It’s a little tricky to define abstract base classes (ABCs) in Python,
+see more details from <a class="reference external" href="https://docs.python.org/3.5/library/abc.html">https://docs.python.org/3.5/library/abc.html</a></p>
+<div class="section" id="class-feature">
+<h4>Class - Feature<a class="headerlink" href="#class-feature" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.Feature">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.Feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents an abstract base class for all features,
+in which common operations are defined, such as</p>
+<ul class="simple">
+<li>construct a fullname as an id using its class and its mask size</li>
+<li>compute the feature value of a given pixel</li>
+</ul>
+<dl class="method">
+<dt id="program.model.featureextraction.feature.Feature.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other: object</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#program.model.featureextraction.feature.Feature.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is equals to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If the objects are equals or not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature.Feature.__hash__">
+<code class="descname">__hash__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#program.model.featureextraction.feature.Feature.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hash our object in order to obtain an id from our object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The id of our object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature.Feature.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.Feature.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>A feature must be initialed with a name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – name of the feature,  obligatory</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature.Feature.__repr__">
+<code class="descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#program.model.featureextraction.feature.Feature.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a description of the object.</p>
+<p>Feature(name)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A description of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature.Feature.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#program.model.featureextraction.feature.Feature.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A description of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.featureextraction.feature.Feature.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.featureextraction.feature.Feature.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature.Feature.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>img</em>, <em>mask_size: int = None</em><span class="sig-paren">)</span> &#x2192; {&lt;class 'str'&gt;, &lt;class 'float'&gt;}<a class="headerlink" href="#program.model.featureextraction.feature.Feature.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The core function to compute the the feature value of a given pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel, obligatory</li>
+<li><strong>img</strong> (<em>OpenCV Image</em>) – the image, obligatory</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the size of neighborhood of the pixel to compute feature value, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A dictionary containing the features computed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">{str, float}</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.featureextraction.feature.Feature.construct_full_name">
+<em class="property">static </em><code class="descname">construct_full_name</code><span class="sig-paren">(</span><em>mask_size: int</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.Feature.construct_full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a unique full name using the subclass name and the mask_size like this : (name)_(size)x(size)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the Feature</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The mask_size of the feature</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The fullname of the feature</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-grayvalue">
+<h4>Class - GrayValue<a class="headerlink" href="#class-grayvalue" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.GrayValue">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">GrayValue</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.GrayValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents a feature: the gray scale of the pixel.</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature.GrayValue.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>img</em>, <em>mask_size: int = None</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.GrayValue.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The core function to compute the the feature value of a given pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel, obligatory</li>
+<li><strong>img</strong> (<em>OpenCV Image</em>) – the image, obligatory</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the size of neighborhood of the pixel to compute feature value, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A dictionary containing the features computed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">{str, float}</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-meangrayvalue">
+<h4>Class - MeanGrayValue<a class="headerlink" href="#class-meangrayvalue" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.MeanGrayValue">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">MeanGrayValue</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.MeanGrayValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents a feature : the mean gray value of the NxN neighbors around the pixel</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature.MeanGrayValue.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>img</em>, <em>mask_size: int = None</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.MeanGrayValue.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The core function to compute the the feature value of a given pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel, obligatory</li>
+<li><strong>img</strong> (<em>OpenCV Image</em>) – the image, obligatory</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the size of neighborhood of the pixel to compute feature value, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A dictionary containing the features computed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">{str, float}</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>AttributeError</strong> – If the msk_size isn’t an odd number</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-calcdifference">
+<h4>Class - CalcDifference<a class="headerlink" href="#class-calcdifference" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.CalcDifference">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">CalcDifference</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.CalcDifference" title="Permalink to this definition">¶</a></dt>
+<dd><p>This feature returns the minimum of the differences between central value
+and neighborhood values in n * n mask.</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature.CalcDifference.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>img</em>, <em>mask_size: int = None</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.CalcDifference.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The core function to compute the the feature value of a given pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel, obligatory</li>
+<li><strong>img</strong> (<em>OpenCV Image</em>) – the image, obligatory</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the size of neighborhood of the pixel to compute feature value, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A dictionary containing the features computed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">{str, float}</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>AttributeError</strong> – If the msk_size isn’t an odd number</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-graylevel">
+<h4>Class - GrayLevel<a class="headerlink" href="#class-graylevel" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.GrayLevel">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">GrayLevel</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.GrayLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This feature returns the numbers of pixels in each level.</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature.GrayLevel.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>img</em>, <em>mask_size: int = None</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.GrayLevel.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The core function to compute the the feature value of a given pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel, obligatory</li>
+<li><strong>img</strong> (<em>OpenCV Image</em>) – the image, obligatory</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the size of neighborhood of the pixel to compute feature value, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A dictionary containing the features computed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">{str, float}</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>AttributeError</strong> – If the msk_size isn’t an odd number</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-localbinarypatterns">
+<h4>Class - LocalBinaryPatterns<a class="headerlink" href="#class-localbinarypatterns" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.LocalBinaryPatterns">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">LocalBinaryPatterns</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.LocalBinaryPatterns" title="Permalink to this definition">¶</a></dt>
+<dd><p>This feature represents the LBP.</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature.LocalBinaryPatterns.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pixel: (&lt;class 'int'&gt;</em>, <em>&lt;class 'int'&gt;)</em>, <em>img</em>, <em>mask_size: int = None</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.featureextraction.feature.LocalBinaryPatterns.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>The core function to compute the the feature value of a given pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pixel</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>)</em>) – the pixel, obligatory</li>
+<li><strong>img</strong> (<em>OpenCV Image</em>) – the image, obligatory</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – the size of neighborhood of the pixel to compute feature value, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A dictionary containing the features computed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">{str, float}</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>AttributeError</strong> – If the msk_size isn’t an odd number</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-definitionfeatureenum">
+<h4>Class - DefinitionFeatureEnum<a class="headerlink" href="#class-definitionfeatureenum" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.DefinitionFeatureEnum">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">DefinitionFeatureEnum</code><a class="headerlink" href="#program.model.featureextraction.feature.DefinitionFeatureEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>This enumeration is used to retrieve all the possible features. A definition feature enumeration contains :</p>
+<ul class="simple">
+<li>A name which must be unique</li>
+<li>The feature to compute to retrieve his value</li>
+<li>A boolean to say if you need a size or not</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="class-definitionfeature">
+<h4>Class - DefinitionFeature<a class="headerlink" href="#class-definitionfeature" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature.DefinitionFeature">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature.</code><code class="descname">DefinitionFeature</code><span class="sig-paren">(</span><em>definition_enum: program.model.featureextraction.feature.DefinitionFeatureEnum = None</em>, <em>mask_size: int = None</em>, <em>feature_name: str = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature.DefinitionFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents a calculable feature. Indeed, some feature use the same class to compute itself
+(for example, te number of white pixels and dark pixels use the GrayLevel Feature)</p>
+<p>A definition feature contains :</p>
+<blockquote>
+<div><ul class="simple">
+<li>A unique name</li>
+<li>The feature to use to compute it</li>
+<li>A mask_size</li>
+<li>A full_name, compute from the name and the mask_size</li>
+</ul>
+</div></blockquote>
+<dl class="method">
+<dt id="program.model.featureextraction.feature.DefinitionFeature.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other: object</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#program.model.featureextraction.feature.DefinitionFeature.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the object (self) is equals to the object other.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – The other object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">If the objects are equals or not</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature.DefinitionFeature.__hash__">
+<code class="descname">__hash__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#program.model.featureextraction.feature.DefinitionFeature.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hash our object in order to obtain an id from our object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The id of our object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature.DefinitionFeature.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>definition_enum: program.model.featureextraction.feature.DefinitionFeatureEnum = None</em>, <em>mask_size: int = None</em>, <em>feature_name: str = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature.DefinitionFeature.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a DefinitionFeature object. It can be created with a DefinitionFeatureEnum or just a feature_name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>definition_enum</strong> (<a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeatureEnum" title="program.model.featureextraction.feature.DefinitionFeatureEnum"><em>DefinitionFeatureEnum</em></a>) – The definitionFeatureEnum to use to create it</li>
+<li><strong>mask_size</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The mask size</li>
+<li><strong>feature_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the feature</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.featureextraction.feature.DefinitionFeature.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.featureextraction.feature.DefinitionFeature.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.featureextraction.feature.DefinitionFeature.full_name">
+<code class="descname">full_name</code><a class="headerlink" href="#program.model.featureextraction.feature.DefinitionFeature.full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a unique full name using the name and the mask_size like this : (name)_(size)x(size)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The fullname of the feature</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-program.model.featureextraction.feature_selector">
+<span id="module-feature-selector"></span><h3>Module - feature_selector<a class="headerlink" href="#module-program.model.featureextraction.feature_selector" title="Permalink to this headline">¶</a></h3>
+<p>This module contains all the algorithm to search the best features to use in our recognition model</p>
+<div class="section" id="class-featureselector">
+<h4>Class - FeatureSelector<a class="headerlink" href="#class-featureselector" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature_selector.FeatureSelector">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature_selector.</code><code class="descname">FeatureSelector</code><span class="sig-paren">(</span><em>name: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature_selector.FeatureSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>This abstract class represents a research algorithm. It contains just a unique name</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature_selector.FeatureSelector.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature_selector.FeatureSelector.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a FeatureSelector object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the feature selector</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.featureextraction.feature_selector.FeatureSelector.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.featureextraction.feature_selector.FeatureSelector.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature_selector.FeatureSelector.search_best_features">
+<code class="descname">search_best_features</code><span class="sig-paren">(</span><em>model: program.model.machinelearning.machinelearning.RecognitionModel, csv_extracted_path: str, training_image_names: [&lt;class 'str'&gt;], nb_classes: int, possible_features: [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;], nb_samples_per_classes: int = 100, nb_samples_for_evaluation: int = 10</em><span class="sig-paren">)</span> &#x2192; [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;]<a class="headerlink" href="#program.model.featureextraction.feature_selector.FeatureSelector.search_best_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search the best features to use for a recognition model and a population of samples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<a class="reference internal" href="#program.model.machinelearning.machinelearning.RecognitionModel" title="program.model.machinelearning.machinelearning.RecognitionModel"><em>RecognitionModel</em></a>) – The recognition model we will use</li>
+<li><strong>csv_extracted_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path to the CSV files containing all the features computed</li>
+<li><strong>training_image_names</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The list of training image names</li>
+<li><strong>nb_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of classes to recognize</li>
+<li><strong>possible_features</strong> (<em>[</em><a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature"><em>DefinitionFeature</em></a><em>]</em>) – The list of possible features at the beginning</li>
+<li><strong>nb_samples_per_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of samples we should use per classes to train the model</li>
+<li><strong>nb_samples_for_evaluation</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of samples we should use per classes to evaluate the model</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The list of features we should use with our model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[<a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature">DefinitionFeature</a>]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-sequentialforwardselection">
+<h4>Class - SequentialForwardSelection<a class="headerlink" href="#class-sequentialforwardselection" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature_selector.SequentialForwardSelection">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature_selector.</code><code class="descname">SequentialForwardSelection</code> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature_selector.SequentialForwardSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>This Feature Selector add the best feature until it stops increase the recognition rate</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature_selector.SequentialForwardSelection.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature_selector.SequentialForwardSelection.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a SequentialForwardSelection object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature_selector.SequentialForwardSelection.search_best_features">
+<code class="descname">search_best_features</code><span class="sig-paren">(</span><em>model: program.model.machinelearning.machinelearning.RecognitionModel, csv_extracted_path: str, training_image_names: [&lt;class 'str'&gt;], nb_classes: int, possible_features: [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;], nb_samples_per_classes: int = 100, nb_samples_for_evaluation: int = 10</em><span class="sig-paren">)</span> &#x2192; [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;]<a class="headerlink" href="#program.model.featureextraction.feature_selector.SequentialForwardSelection.search_best_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search the best features to use for a recognition model and a population of samples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<a class="reference internal" href="#program.model.machinelearning.machinelearning.RecognitionModel" title="program.model.machinelearning.machinelearning.RecognitionModel"><em>RecognitionModel</em></a>) – The recognition model we will use</li>
+<li><strong>csv_extracted_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path to the CSV files containing all the features computed</li>
+<li><strong>training_image_names</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The list of training image names</li>
+<li><strong>nb_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of classes to recognize</li>
+<li><strong>possible_features</strong> (<em>[</em><a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature"><em>DefinitionFeature</em></a><em>]</em>) – The list of possible features at the beginning</li>
+<li><strong>nb_samples_per_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of samples we should use per classes to train the model</li>
+<li><strong>nb_samples_for_evaluation</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of samples we should use per classes to evaluate the model</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The list of features we should use with our model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[<a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature">DefinitionFeature</a>]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">For more details on the algorithm, go to <a class="reference external" href="https://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/">this site</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-sequentialforwardfloatingselection">
+<h4>Class - SequentialForwardFloatingSelection<a class="headerlink" href="#class-sequentialforwardfloatingselection" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.feature_selector.SequentialForwardFloatingSelection">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.feature_selector.</code><code class="descname">SequentialForwardFloatingSelection</code> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature_selector.SequentialForwardFloatingSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>This Feature Selector add the best feature and remove the less useful feature
+until it stops increase the recognition rate</p>
+<dl class="method">
+<dt id="program.model.featureextraction.feature_selector.SequentialForwardFloatingSelection.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.featureextraction.feature_selector.SequentialForwardFloatingSelection.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a SequentialForwardFloatingSelection object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.featureextraction.feature_selector.SequentialForwardFloatingSelection.search_best_features">
+<code class="descname">search_best_features</code><span class="sig-paren">(</span><em>model: program.model.machinelearning.machinelearning.RecognitionModel, csv_extracted_path: str, training_image_names: [&lt;class 'str'&gt;], nb_classes: int, possible_features: [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;], nb_samples_per_classes: int = 100, nb_samples_for_evaluation: int = 10</em><span class="sig-paren">)</span> &#x2192; [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;]<a class="headerlink" href="#program.model.featureextraction.feature_selector.SequentialForwardFloatingSelection.search_best_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search the best features to use for a recognition model and a population of samples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<a class="reference internal" href="#program.model.machinelearning.machinelearning.RecognitionModel" title="program.model.machinelearning.machinelearning.RecognitionModel"><em>RecognitionModel</em></a>) – The recognition model we will use</li>
+<li><strong>csv_extracted_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path to the CSV files containing all the features computed</li>
+<li><strong>training_image_names</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The list of training image names</li>
+<li><strong>nb_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of classes to recognize</li>
+<li><strong>possible_features</strong> (<em>[</em><a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature"><em>DefinitionFeature</em></a><em>]</em>) – The list of possible features at the beginning</li>
+<li><strong>nb_samples_per_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of samples we should use per classes to train the model</li>
+<li><strong>nb_samples_for_evaluation</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of samples we should use per classes to evaluate the model</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The list of features we should use with our model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[<a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature">DefinitionFeature</a>]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">For more details on the algorithm, go to <a class="reference external" href="https://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/">this site</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-program.model.featureextraction.image_features_extractor">
+<span id="module-image-features-extractor"></span><h3>Module - image_features_extractor<a class="headerlink" href="#module-program.model.featureextraction.image_features_extractor" title="Permalink to this headline">¶</a></h3>
+<p>This module includes classes used for extracting features of an image or a folder of image.</p>
+<div class="section" id="class-imagefeaturesextractor">
+<h4>Class - ImageFeaturesExtractor<a class="headerlink" href="#class-imagefeaturesextractor" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor">
+<em class="property">class </em><code class="descclassname">program.model.featureextraction.image_features_extractor.</code><code class="descname">ImageFeaturesExtractor</code><a class="headerlink" href="#program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class contains functions to extract features of a given image.</p>
+<dl class="attribute">
+<dt id="program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.extract_all_features">
+<em class="property">static </em><code class="descname">extract_all_features</code><span class="sig-paren">(</span><em>labeled_pixels: [&lt;class 'program.model.datastructure.labeled_pixel.LabeledPixel'&gt;], nb_random_pixel_to_add: int</em><span class="sig-paren">)</span> &#x2192; program.model.datastructure.feature_table.FeatureTable<a class="headerlink" href="#program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.extract_all_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract all the possible features from a given image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path to the image</li>
+<li><strong>labeled_pixels</strong> (<em>[</em><a class="reference internal" href="#program.model.datastructure.labeled_pixel.LabeledPixel" title="program.model.datastructure.labeled_pixel.LabeledPixel"><em>LabeledPixel</em></a><em>]</em>) – The list of labeled pixels to use</li>
+<li><strong>nb_random_pixel_to_add</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of random pixel we will add as trash class</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The FeatureTable containing all the labeled pixels and trash pixels with their features extracted</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#program.model.datastructure.feature_table.FeatureTable" title="program.model.datastructure.feature_table.FeatureTable">FeatureTable</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.extract_features">
+<em class="property">static </em><code class="descname">extract_features</code><span class="sig-paren">(</span><em>features: [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;], labeled_pixels: [&lt;class 'program.model.datastructure.labeled_pixel.LabeledPixel'&gt;] = None, nb_random_pixel_to_add: int = 0</em><span class="sig-paren">)</span> &#x2192; program.model.datastructure.feature_table.FeatureTable<a class="headerlink" href="#program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.extract_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract some features from a given image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path to the image</li>
+<li><strong>features</strong> (<em>[</em><a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature"><em>DefinitionFeature</em></a><em>]</em>) – The list of Feature to compute</li>
+<li><strong>labeled_pixels</strong> (<em>[</em><a class="reference internal" href="#program.model.datastructure.labeled_pixel.LabeledPixel" title="program.model.datastructure.labeled_pixel.LabeledPixel"><em>LabeledPixel</em></a><em>]</em>) – The list of labeled pixels to use</li>
+<li><strong>nb_random_pixel_to_add</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of random pixel we will add as trash class</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The FeatureTable containing all the labeled pixels and trash pixels with their features extracted</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#program.model.datastructure.feature_table.FeatureTable" title="program.model.datastructure.feature_table.FeatureTable">FeatureTable</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.extract_validation_data_set_from_learning_data_set">
+<em class="property">static </em><code class="descname">extract_validation_data_set_from_learning_data_set</code><span class="sig-paren">(</span><em>nb_class_names: int</em>, <em>learning_data_set: program.model.datastructure.feature_table.FeatureTable</em><span class="sig-paren">)</span> &#x2192; program.model.datastructure.feature_table.FeatureTable<a class="headerlink" href="#program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.extract_validation_data_set_from_learning_data_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the validation data set from the learning data set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nb_samples_per_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of sample to extract for each class</li>
+<li><strong>nb_class_names</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of classes</li>
+<li><strong>learning_data_set</strong> (<a class="reference internal" href="#program.model.datastructure.feature_table.FeatureTable" title="program.model.datastructure.feature_table.FeatureTable"><em>FeatureTable</em></a>) – The learning data set</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A data set which could be use for the evaluation of our recognition model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#program.model.datastructure.feature_table.FeatureTable" title="program.model.datastructure.feature_table.FeatureTable">FeatureTable</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.generate_training_base">
+<em class="property">static </em><code class="descname">generate_training_base</code><span class="sig-paren">(</span><em>file_names: [&lt;class 'str'&gt;], nb_samples_per_classes: int, nb_classes: int, list_features: [&lt;class 'program.model.featureextraction.feature.DefinitionFeature'&gt;]</em><span class="sig-paren">)</span> &#x2192; program.model.datastructure.feature_table.FeatureTable<a class="headerlink" href="#program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor.generate_training_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge all the CSV generated from a feature extraction and create a data set from them.
+Each class will have the same amount of individuals chosen randomly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>individuals_csv_files_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path to the CSV generated</li>
+<li><strong>file_names</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – The names of CSV files</li>
+<li><strong>nb_samples_per_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of sample to extract for each class</li>
+<li><strong>nb_classes</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – The number of classes</li>
+<li><strong>list_features</strong> (<em>[</em><a class="reference internal" href="#program.model.featureextraction.feature.DefinitionFeature" title="program.model.featureextraction.feature.DefinitionFeature"><em>DefinitionFeature</em></a><em>]</em>) – The list of features to extract</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A data set which could be use for the training of our recognition model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#program.model.datastructure.feature_table.FeatureTable" title="program.model.datastructure.feature_table.FeatureTable">FeatureTable</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="package-machinelearning">
+<h2>Package - MachineLearning<a class="headerlink" href="#package-machinelearning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-program.model.machinelearning.machinelearning">
+<span id="module-machinelearning"></span><h3>Module - machinelearning<a class="headerlink" href="#module-program.model.machinelearning.machinelearning" title="Permalink to this headline">¶</a></h3>
+<p>This module represents the Machine Learning.</p>
+<div class="section" id="class-recognitionmodel">
+<h4>Class - RecognitionModel<a class="headerlink" href="#class-recognitionmodel" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.machinelearning.machinelearning.RecognitionModel">
+<em class="property">class </em><code class="descclassname">program.model.machinelearning.machinelearning.</code><code class="descname">RecognitionModel</code><a class="headerlink" href="#program.model.machinelearning.machinelearning.RecognitionModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parent class for all classifiers.</p>
+<dl class="attribute">
+<dt id="program.model.machinelearning.machinelearning.RecognitionModel.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.machinelearning.machinelearning.RecognitionModel.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.RecognitionModel.evaluate_model">
+<code class="descname">evaluate_model</code><span class="sig-paren">(</span><em>samples</em>, <em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.RecognitionModel.evaluate_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model using the given samples and labels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – the samples</li>
+<li><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The Evaluation of the model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#program.model.datastructure.evaluation.Evaluation" title="program.model.datastructure.evaluation.Evaluation">Evaluation</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.RecognitionModel.train">
+<code class="descname">train</code><span class="sig-paren">(</span><em>samples</em>, <em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.RecognitionModel.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>samples</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – the samples</li>
+<li><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-svm">
+<h4>Class - SVM<a class="headerlink" href="#class-svm" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.machinelearning.machinelearning.SVM">
+<em class="property">class </em><code class="descclassname">program.model.machinelearning.machinelearning.</code><code class="descname">SVM</code><span class="sig-paren">(</span><em>C=100</em>, <em>gamma=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the Sci-Kit version of SVM.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">sklearn.svm.SVC</a></p>
+</div>
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>C=100</em>, <em>gamma=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a SVM classifier.
+The default kernel is RBF(Radial Basis Function).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>C</strong> – The <strong>C</strong> parameter trades off misclassification of training examples against simplicity
+of the decision surface</li>
+<li><strong>gamma</strong> – the gamma parameter defines how far the influence of a single training example reaches,
+with low values meaning ‘far’ and high values meaning ‘close’</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">see more about <strong>C</strong> and <strong>gamma</strong> :
+<a class="reference external" href="http://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html">RBF SVM parameters</a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.auto_predict">
+<code class="descname">auto_predict</code><span class="sig-paren">(</span><em>samples</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.auto_predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will use the model to predict the samples, generate probability map and the final result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.evaluate_model">
+<code class="descname">evaluate_model</code><span class="sig-paren">(</span><em>samples</em>, <em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.evaluate_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model using the given samples and labels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – the samples</li>
+<li><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The Evaluation of the model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#program.model.datastructure.evaluation.Evaluation" title="program.model.datastructure.evaluation.Evaluation">Evaluation</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.machinelearning.machinelearning.SVM.grid_search_c_gamma">
+<em class="property">static </em><code class="descname">grid_search_c_gamma</code><span class="sig-paren">(</span><em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.grid_search_c_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grid Search for best combination of <strong>C</strong> and <strong>gamma</strong>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> – the samples</li>
+<li><strong>labels</strong> – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the best combination of <strong>C</strong> and <strong>gamma</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This method uses a linear kernel, not the RBF kernel.</p>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="program.model.machinelearning.machinelearning.SVM.mixed_demo">
+<em class="property">static </em><code class="descname">mixed_demo</code><span class="sig-paren">(</span><em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.mixed_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a demo trying to combine Feature Selection and Grid Search.
+But it’s too slow to produce a good result.
+To be improved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>samples</strong> – the samples</li>
+<li><strong>labels</strong> – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><em>samples</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the samples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> – the samples</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of label-result</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.predict_image">
+<code class="descname">predict_image</code><span class="sig-paren">(</span><em>dirpath</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.predict_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will combine the pixels and their results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dirpath</strong> – the dir path to the predict-images image feature file</li>
+<li><strong>filename</strong> – the name of the predict-images image feature file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the image prediction result</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ImageResult</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.predict_proba">
+<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>samples</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.predict_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the probabilities of each given sample to each label.
+:param samples: the samples
+:return: a list of probas-result</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.train">
+<code class="descname">train</code><span class="sig-paren">(</span><em>samples</em>, <em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>samples</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – the samples</li>
+<li><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.SVM.train_and_evaluate">
+<code class="descname">train_and_evaluate</code><span class="sig-paren">(</span><em>samples_train</em>, <em>labels_train</em>, <em>samples_test</em>, <em>labels_test</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.SVM.train_and_evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A combination of train() and evaluate_model()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>samples_train</strong> – the samples to train the model</li>
+<li><strong>labels_train</strong> – the corresponding labels to train samples</li>
+<li><strong>samples_test</strong> – the samples to evaluate the model</li>
+<li><strong>labels_test</strong> – the corresponding labels to evaluate samples</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the error rate</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-randomforest">
+<h4>Class - RandomForest<a class="headerlink" href="#class-randomforest" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.machinelearning.machinelearning.RandomForest">
+<em class="property">class </em><code class="descclassname">program.model.machinelearning.machinelearning.</code><code class="descname">RandomForest</code><a class="headerlink" href="#program.model.machinelearning.machinelearning.RandomForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple Random Forest classifier.</p>
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.RandomForest.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.RandomForest.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.RandomForest.evaluate_model">
+<code class="descname">evaluate_model</code><span class="sig-paren">(</span><em>samples</em>, <em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.RandomForest.evaluate_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model using the given samples and labels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – the samples</li>
+<li><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The Evaluation of the model</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#program.model.datastructure.evaluation.Evaluation" title="program.model.datastructure.evaluation.Evaluation">Evaluation</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.machinelearning.machinelearning.RandomForest.train">
+<code class="descname">train</code><span class="sig-paren">(</span><em>samples</em>, <em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#program.model.machinelearning.machinelearning.RandomForest.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>samples</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>]</em>) – the samples</li>
+<li><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>]</em>) – the corresponding labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="package-resultbuilder">
+<h2>Package - ResultBuilder<a class="headerlink" href="#package-resultbuilder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-program.model.resultbuilder.resultbuilder">
+<span id="module-resultbuilder"></span><h3>Module - resultbuilder<a class="headerlink" href="#module-program.model.resultbuilder.resultbuilder" title="Permalink to this headline">¶</a></h3>
+<p>This module contains all the tools to exploit the model predictions</p>
+<div class="section" id="class-resultbuilder">
+<h4>Class - ResultBuilder<a class="headerlink" href="#class-resultbuilder" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.resultbuilder.resultbuilder.ResultBuilder">
+<em class="property">class </em><code class="descclassname">program.model.resultbuilder.resultbuilder.</code><code class="descname">ResultBuilder</code><span class="sig-paren">(</span><em>name: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.ResultBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>This abstract class will define all our result builders.
+It contains a name and a prediction.</p>
+<dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.ResultBuilder.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.ResultBuilder.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a result builder object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the result builder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.resultbuilder.resultbuilder.ResultBuilder.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.resultbuilder.resultbuilder.ResultBuilder.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.ResultBuilder.generate_results">
+<code class="descname">generate_results</code><span class="sig-paren">(</span><em>result_path: str, image_name: str, class_names: [&lt;class 'str'&gt;], image_path: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.ResultBuilder.generate_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a result using the prediction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>result_path</strong> – The path where to store the result</li>
+<li><strong>image_name</strong> – The image name</li>
+<li><strong>class_names</strong> – The list of class names</li>
+<li><strong>image_path</strong> – The path to the image</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nothing, a result has been saved into the result_path. It name is (image_name + ‘_’ + self.name)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-binaryimagebuilder">
+<h4>Class - BinaryImageBuilder<a class="headerlink" href="#class-binaryimagebuilder" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.resultbuilder.resultbuilder.BinaryImageBuilder">
+<em class="property">class </em><code class="descclassname">program.model.resultbuilder.resultbuilder.</code><code class="descname">BinaryImageBuilder</code> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.BinaryImageBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.BinaryImageBuilder.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.BinaryImageBuilder.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a result builder object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the result builder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.BinaryImageBuilder.generate_results">
+<code class="descname">generate_results</code><span class="sig-paren">(</span><em>result_path: str, image_name: str, class_names: [&lt;class 'str'&gt;], image_path: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.BinaryImageBuilder.generate_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a binary image for each class. The pixel will be black if the pixel was defined as
+an individual of this class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>result_path</strong> – The path where to store the result</li>
+<li><strong>image_name</strong> – The image name</li>
+<li><strong>class_names</strong> – The list of class names</li>
+<li><strong>image_path</strong> – The path to the image</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nothing, a result has been saved into the result_path. It name is (image_name+_+self.name+_+class_name)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-grayimagebuilder">
+<h4>Class - GrayImageBuilder<a class="headerlink" href="#class-grayimagebuilder" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.resultbuilder.resultbuilder.GrayImageBuilder">
+<em class="property">class </em><code class="descclassname">program.model.resultbuilder.resultbuilder.</code><code class="descname">GrayImageBuilder</code> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.GrayImageBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.GrayImageBuilder.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.GrayImageBuilder.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a result builder object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the result builder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.GrayImageBuilder.generate_results">
+<code class="descname">generate_results</code><span class="sig-paren">(</span><em>result_path: str, image_name: str, class_names: [&lt;class 'str'&gt;], image_path: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.GrayImageBuilder.generate_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a gray scale image for each class. The pixel will darker if the pixel has a high probability to be
+an individual of this class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>result_path</strong> – The path where to store the result</li>
+<li><strong>image_name</strong> – The image name</li>
+<li><strong>class_names</strong> – The list of class names</li>
+<li><strong>image_path</strong> – The path to the image</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nothing, a result has been saved into the result_path. It name is (image_name+_+self.name+_+class_name)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-classimagebuilder">
+<h4>Class - ClassImageBuilder<a class="headerlink" href="#class-classimagebuilder" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.resultbuilder.resultbuilder.ClassImageBuilder">
+<em class="property">class </em><code class="descclassname">program.model.resultbuilder.resultbuilder.</code><code class="descname">ClassImageBuilder</code> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.ClassImageBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.ClassImageBuilder.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.ClassImageBuilder.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a result builder object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The name of the result builder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.resultbuilder.resultbuilder.ClassImageBuilder.generate_results">
+<code class="descname">generate_results</code><span class="sig-paren">(</span><em>result_path: str, image_name: str, class_names: [&lt;class 'str'&gt;], image_path: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.resultbuilder.resultbuilder.ClassImageBuilder.generate_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a colored image with one color for each class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>result_path</strong> – The path where to store the result</li>
+<li><strong>image_name</strong> – The image name</li>
+<li><strong>class_names</strong> – The list of class names</li>
+<li><strong>image_path</strong> – The path to the image</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nothing, a result has been saved into the result_path. It name is (image_name+_+self.name)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-program.model.workspace">
+<span id="module-workspace"></span><h3>Module - workspace<a class="headerlink" href="#module-program.model.workspace" title="Permalink to this headline">¶</a></h3>
+<p>This module contains the definition of a workspace</p>
+<div class="section" id="class-workspace">
+<h4>Class - Workspace<a class="headerlink" href="#class-workspace" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="program.model.workspace.Workspace">
+<em class="property">class </em><code class="descclassname">program.model.workspace.</code><code class="descname">Workspace</code><span class="sig-paren">(</span><em>directory_path: str = None</em>, <em>recognition_model: program.model.machinelearning.machinelearning.RecognitionModel = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.workspace.Workspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents the workspace where we will work during the process. It contains :</p>
+<ul class="simple">
+<li>The names of the class we will classify</li>
+<li>The list of the faithful training images</li>
+<li>The path to the repository</li>
+<li>A boolean to storage if the workspace is faithful</li>
+</ul>
+<p>This is the required structure for our workspace :</p>
+<p>Root</p>
+<p>├── features</p>
+<p>│   ├── predict</p>
+<p>│   └── train_features</p>
+<p>├── machinelearning</p>
+<p>│   ├── evaluate</p>
+<p>│   ├── results</p>
+<p>│   ├── svm</p>
+<p>│   └── train_machinelearning</p>
+<p>├── predict-images</p>
+<p>└── train-images</p>
+<blockquote>
+<div>└── img</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You need to call the __init() function after each creation of a workspace object</p>
+</div>
+<dl class="method">
+<dt id="program.model.workspace.Workspace.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>directory_path: str = None</em>, <em>recognition_model: program.model.machinelearning.machinelearning.RecognitionModel = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.workspace.Workspace.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a workspace object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>directory_path</strong> (<em>string</em><em> or </em><em>None</em>) – the path to the directory where we will work during the process.</td>
+</tr>
+</tbody>
+</table>
+<p>:except If the structure is not empty but improper, an exception will be thrown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#program.model.workspace.Workspace.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.create_required_structure">
+<code class="descname">create_required_structure</code><span class="sig-paren">(</span><em>required_folders: treelib.node.Node = None</em>, <em>directory_path: str = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.workspace.Workspace.create_required_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive method to create the missing folders by comparing with the required structure.
+The method will check if the repository contains all the sub folders into required_folders and create
+the missing ones.
+Then it will make the same for each sub folders from the initial list recursively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>required_folders</strong> (<em>Node</em>) – The list of the first sub folders</li>
+<li><strong>directory_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The directory path to update</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">The tree structure documentation (<a class="reference external" href="http://treelib.readthedocs.io/en/latest/">link</a>)</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.feature_path">
+<code class="descname">feature_path</code><a class="headerlink" href="#program.model.workspace.Workspace.feature_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the features repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the features repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.find_class_names">
+<code class="descname">find_class_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; [&lt;class 'str'&gt;]<a class="headerlink" href="#program.model.workspace.Workspace.find_class_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will retrieve all the classes we want to classify.
+It will retrieve the directory names in ./Root/train-images</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The list of classes to classify</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a>]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>AttributeError</strong> – If the directory isn’t faithful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.find_training_image_names">
+<code class="descname">find_training_image_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; [&lt;class 'str'&gt;]<a class="headerlink" href="#program.model.workspace.Workspace.find_training_image_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will retrieve all the training images.
+It will retrieve the images which have a binary image in each class folders/</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The list of training images</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a>]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>AttributeError</strong> – If the directory isn’t faithful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.generate_csv_dictionary">
+<code class="descname">generate_csv_dictionary</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.workspace.Workspace.generate_csv_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method which generate a CSV file in ./Root/dict_pixels_labels.csv.
+It will contain all the labelled pixels from all the training images.</p>
+<p>Example :</p>
+<p>x;y;img_name;label</p>
+<p>1;46;z01;C4</p>
+<p>2;44;z01;C4</p>
+<p>23;76;z02;C3</p>
+<p>23;77;z02;C3</p>
+<p>23;78;z02;C3</p>
+<p>23;79;z02;C3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.init">
+<code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.workspace.Workspace.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the workspace using the path to the repository, the workspace will parse the repository structure.</p>
+<ul class="simple">
+<li>If the structure matches with the required structure,
+the workspace will find the class names the user want to classify (by retrieving the directory names in
+./train-images.
+After that, it will create a CSV file containing all the labeled pixels from all the training images.</li>
+<li>Otherwise, if the folder is empty, the structure will be created and the user will need to
+update the workspace when he will have stored his training images in the right folders.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>AttributeError</strong> – If the structure is not empty but improper, an exception will be thrown.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.is_faithful">
+<code class="descname">is_faithful</code><span class="sig-paren">(</span><em>required_folders: treelib.node.Node = None</em>, <em>directory_path: str = None</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#program.model.workspace.Workspace.is_faithful" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive method to know if a directory contains all the structure required.
+The method will check if the repository contains all the sub folders into required_folders.
+Then it will check the sub folders into each sub folders from the initial list recursively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>required_folders</strong> (<em>Node</em>) – The list of the first sub folders</li>
+<li><strong>directory_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The directory to test</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">If the directory contains all the required folders</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">The tree structure documentation (<a class="reference external" href="http://treelib.readthedocs.io/en/latest/">link</a>)</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.machine_learning_path">
+<code class="descname">machine_learning_path</code><a class="headerlink" href="#program.model.workspace.Workspace.machine_learning_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the machinelearning repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the machinelearning repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.ml_evaluate_samples_path">
+<code class="descname">ml_evaluate_samples_path</code><a class="headerlink" href="#program.model.workspace.Workspace.ml_evaluate_samples_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the evaluate repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the evaluate repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.ml_predict_results_path">
+<code class="descname">ml_predict_results_path</code><a class="headerlink" href="#program.model.workspace.Workspace.ml_predict_results_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the results repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the results repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.ml_svm_path">
+<code class="descname">ml_svm_path</code><a class="headerlink" href="#program.model.workspace.Workspace.ml_svm_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the svm repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the svm repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.ml_train_samples_path">
+<code class="descname">ml_train_samples_path</code><a class="headerlink" href="#program.model.workspace.Workspace.ml_train_samples_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the train_machinelearning repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the train_machinelearning repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.predict_features_path">
+<code class="descname">predict_features_path</code><a class="headerlink" href="#program.model.workspace.Workspace.predict_features_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the train_features repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the train_features repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.predict_image_path">
+<code class="descname">predict_image_path</code><a class="headerlink" href="#program.model.workspace.Workspace.predict_image_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the predict_images repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of predict_images repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.set_directory_path">
+<code class="descname">set_directory_path</code><span class="sig-paren">(</span><em>directory_path: str</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.workspace.Workspace.set_directory_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the directory path of the workspace and reinitialize the workspace.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>directory_path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The new directory path</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.train_features_path">
+<code class="descname">train_features_path</code><a class="headerlink" href="#program.model.workspace.Workspace.train_features_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the train_features repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of the train_features repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="program.model.workspace.Workspace.train_image_path">
+<code class="descname">train_image_path</code><a class="headerlink" href="#program.model.workspace.Workspace.train_image_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the directory path of the train-images repository into the workspace</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The directory path of train-images repository into the workspace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="program.model.workspace.Workspace.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#program.model.workspace.Workspace.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to update the attribute is_faithful, class_names and training_image_names.
+If something have changed, a new CSV will be generated.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Code Analyse</a><ul>
+<li><a class="reference internal" href="#package-datastructure">Package - datastructure</a><ul>
+<li><a class="reference internal" href="#module-program.model.datastructure.evaluation">Module - evaluation</a><ul>
+<li><a class="reference internal" href="#class-evaluation">Class - Evaluation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-program.model.datastructure.feature_table">Module - feature_table</a><ul>
+<li><a class="reference internal" href="#class-individual">Class - Individual</a></li>
+<li><a class="reference internal" href="#class-featuretable">Class - FeatureTable</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-program.model.datastructure.image">Module - image</a><ul>
+<li><a class="reference internal" href="#class-image">Class - Image</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-program.model.datastructure.labeled_pixel">Module - labeled_pixel</a><ul>
+<li><a class="reference internal" href="#class-labeledpixel">Class - LabeledPixel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-program.model.datastructure.prediction">Module - prediction</a><ul>
+<li><a class="reference internal" href="#class-predictionpixel">Class - PredictionPixel</a></li>
+<li><a class="reference internal" href="#class-prediction">Class - Prediction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-featureextraction">Package - featureextraction</a><ul>
+<li><a class="reference internal" href="#module-program.model.featureextraction.feature">Module - feature</a><ul>
+<li><a class="reference internal" href="#class-feature">Class - Feature</a></li>
+<li><a class="reference internal" href="#class-grayvalue">Class - GrayValue</a></li>
+<li><a class="reference internal" href="#class-meangrayvalue">Class - MeanGrayValue</a></li>
+<li><a class="reference internal" href="#class-calcdifference">Class - CalcDifference</a></li>
+<li><a class="reference internal" href="#class-graylevel">Class - GrayLevel</a></li>
+<li><a class="reference internal" href="#class-localbinarypatterns">Class - LocalBinaryPatterns</a></li>
+<li><a class="reference internal" href="#class-definitionfeatureenum">Class - DefinitionFeatureEnum</a></li>
+<li><a class="reference internal" href="#class-definitionfeature">Class - DefinitionFeature</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-program.model.featureextraction.feature_selector">Module - feature_selector</a><ul>
+<li><a class="reference internal" href="#class-featureselector">Class - FeatureSelector</a></li>
+<li><a class="reference internal" href="#class-sequentialforwardselection">Class - SequentialForwardSelection</a></li>
+<li><a class="reference internal" href="#class-sequentialforwardfloatingselection">Class - SequentialForwardFloatingSelection</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-program.model.featureextraction.image_features_extractor">Module - image_features_extractor</a><ul>
+<li><a class="reference internal" href="#class-imagefeaturesextractor">Class - ImageFeaturesExtractor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-machinelearning">Package - MachineLearning</a><ul>
+<li><a class="reference internal" href="#module-program.model.machinelearning.machinelearning">Module - machinelearning</a><ul>
+<li><a class="reference internal" href="#class-recognitionmodel">Class - RecognitionModel</a></li>
+<li><a class="reference internal" href="#class-svm">Class - SVM</a></li>
+<li><a class="reference internal" href="#class-randomforest">Class - RandomForest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-resultbuilder">Package - ResultBuilder</a><ul>
+<li><a class="reference internal" href="#module-program.model.resultbuilder.resultbuilder">Module - resultbuilder</a><ul>
+<li><a class="reference internal" href="#class-resultbuilder">Class - ResultBuilder</a></li>
+<li><a class="reference internal" href="#class-binaryimagebuilder">Class - BinaryImageBuilder</a></li>
+<li><a class="reference internal" href="#class-grayimagebuilder">Class - GrayImageBuilder</a></li>
+<li><a class="reference internal" href="#class-classimagebuilder">Class - ClassImageBuilder</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-program.model.workspace">Module - workspace</a><ul>
+<li><a class="reference internal" href="#class-workspace">Class - Workspace</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dev_manual.html"
+                        title="previous chapter">Document for developer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/code.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dev_manual.html" title="Document for developer"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PRD 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Ronan GUILLAUME.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.0.
+    </div>
+  </body>
+</html>

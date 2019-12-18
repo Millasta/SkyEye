@@ -1,0 +1,284 @@
+User Manual
+=============
+
+Installation Guide
+------------------
+
+Install Python
++++++++++++++++++++
+
+On Windows
+^^^^^^^^^^
+
+Visit the Python for `Windows download page`_, you’ll immediately see the division.
+
+.. _Windows download page: https://www.python.org/downloads
+
+The website asks if you want the latest release of Python 3 (in this tutorial, we are in 3.6.4).
+Download the executable.
+
+.. warning::
+
+   Be careful, you will need a later version of 3.5.1.
+
+.. figure::  images/PythonPage.png
+   :align:   center
+
+Double-click ``python-3.6.4.exe`` and install ``Python 3.6.4`` .
+On the first screen, enable the :ref:`“Add Python 3.6 to PATH”<add-path-label>` option and then click “Customize installation”
+to verify tha the pip and py launcher installations are enabled.
+
+.. figure::  images/PythonInstallation.PNG
+   :align:   center
+
+.. warning::
+
+   Make sure that a version later than ``Python 3.5.1`` is well installed by using the command ``python`` into your terminal.
+
+   .. figure::  images/PythonTerminal.png
+      :align:   center
+
+On UNIX
+^^^^^^^
+
+You just need to use this command on your terminal :
+
+``> sudo apt-get install python3.6``
+
+To verify that Python 3.6.1 is well installed,
+you just need to run this command which should launch the Python 3 interpreter.
+
+``> python3``
+
+Since Python 3.4, pip is included by default. You can easily verify it by running the command :
+
+``> command -v pip``
+
+.. note::
+
+   On some Linux distributions including Ubuntu and Fedora, the pip command is meant for Python 2,
+   while the pip3 command is meant for Python 3.
+
+``> command -v pip3``
+
+Install dependencies
+++++++++++++++++++++
+
+Install pip
+^^^^^^^^^^^
+
+pip is a package management system used to install and manage software packages written in Python.
+To verify if pip is well installed on your system, you just need to run this following command :
+
+``> pip -V``
+
+.. figure::  images/pipVersion.png
+   :align:   center
+
+If pip is not installed or if you want to update it, just use this command :
+
+``> python -m pip install --upgrade pip``
+
+.. figure::  images/PythonInstall.png
+   :align:   center
+
+.. note::
+
+    If you installed pip but your terminal doesn't know the pip command on Windows, maybe you need to :ref:`add pip to PATH<add-path-label>`.
+
+Install packages using a requirements file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The project uses a text file (``./SkyEye/requirements.txt``) to defined all its dependencies.
+
+In your terminal, change the working directory to ``./SkyEye`` and use pip to install all dependencies.
+
+``> pip install -r requirements.txt``
+
+.. figure::  images/PipInstall.png
+   :align:   center
+
+It's possible that some libraries failed to install, you will need to install it locally (it's the case for numpy and scipy).
+
+Install packages locally
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Download the missing packages on this `site`_.
+
+.. _site: http://www.lfd.uci.edu/~gohlke/pythonlibs
+
+For example, for numpy, you will need to download the file ``numpy‑1.13.3+mkl‑cp27‑cp27m‑win_amd64.whl`` or a later version.
+For scipy, you can download ``scipy‑1.0.0‑cp27‑cp27m‑win_amd64.whl``.
+
+Then, you will be able to install it by openning a terminal on the right repository and running :
+
+``> pip install numpy‑1.13.3+mkl‑cp27‑cp27m‑win_amd64.whl``
+
+and
+
+``> pip install scipy‑1.0.0‑cp27‑cp27m‑win_amd64.whl``
+
+If the installation requires ``VC++2010`` or plus, download and install it by double-clicking on ``vc_redist.x64.exe`` (`link`_).
+
+.. _link: https://www.microsoft.com/fr-fr/download/details.aspx?id=48145
+
+.. _add-path-label:
+
+Launch the software
++++++++++++++++++++
+
+On Windows
+^^^^^^^^^^
+
+You just need to double-click on the ``ClickMeToRun.bat`` file.
+
+Add variables to PATH on Windows
+++++++++++++++++++++++++++++++++
+
+Follow this `tutorial`_.
+
+.. _tutorial: https://www.computerhope.com/issues/ch000549.htm
+
+Instruction Manual
+------------------
+
+Define Workspace
+++++++++++++++++
+
+First of all, you must define your workspace where you will work.
+You can choose an empty folder (in this case, the software will generate the required folders) or use an existing one.
+
+Your workspace must have these folders : ::
+
+    - workspace
+        - features
+            - predict
+            - train_features
+        - machinelearning
+            - evaluate
+            - results
+            - svm
+            - train_machinelearning
+        - predict-images
+            - z06.tif
+            - z07.tif
+        - train-images
+            - C1
+                - z01.tif
+                - z02.tif
+            - C2
+                - z01.tif
+                - z02.tif
+            - Cx
+                - z01.tif
+                - z02.tif
+            - img
+                - z01.tif
+                - z02.tif
+
+Arrange Images
+++++++++++++++
+
+The images you want to predict must be stored into ``./workspace/predict-images/``.
+
+For the test and evaluation images, you must store them into ``./workspace/train-images/img``.
+But you also need to store the binary images into the right class folder and with the same filename than the image it describes.
+
+.. figure::  images/imagesSources.png
+   :align:   center
+
+Extract Features
+++++++++++++++++
+
+Extract train image features
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By clicking on the ``Train Base Images`` button, you will extract all the features of each black pixel (on the binary images) of each training image.
+A CSV file will be created for each training image with the same filename and will be stored into
+``./workspace/machinelearning/train`` for the training images and into ``./workspace/machinelearning/evaluate`` for the evaluating images.
+Here an example of the CSV file : ::
+
+    x;y;Gray;Avg3x3;Avg5x5;Avg9x9;Avg15x15;Avg19x19;MinD3x3;MaxD3x3;AvgD3x3;MinD5x5;MaxD5x5;AvgD5x5;MinD9x9;MaxD9x9;AvgD9x9;MinD15x15;MaxD15x15;AvgD15x15;MinD19x19;MaxD19x19;AvgD19x19;NumB3x3;NumD3x3;NumF3x3;NumW3x3;NumB5x5;NumD5x5;NumF5x5;NumW5x5;NumB9x9;NumD9x9;NumF9x9;NumW9x9;NumB15x15;NumD15x15;NumF15x15;NumW15x15;NumB19x19;NumD19x19;NumF19x19;NumW19x19;class
+
+    1;46;6.00;76.22;113.80;114.74;99.72;105.60;6.00;195.00;80.50;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;113.33;85.00;28.33;28.33;51.00;51.00;81.60;20.40;22.04;75.56;66.11;6.30;32.87;77.07;36.27;6.80;30.37;69.93;36.02;11.30;C4
+
+    2;44;13.00;86.78;111.60;112.22;103.49;106.68;7.00;185.00;85.25;7.00;191.00;104.04;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;85.00;85.00;85.00;0.00;61.20;81.60;10;2.00;10.20;28.33;110.19;81.85;6.30;39.67;88.40;47.60;11.33;34.61;81.23;45.91;12.71;C4
+
+    2;45;75.00;101.56;112.48;113.40;101.89;106.46;7.00;129.00;78.12;7.00;129.00;69.79;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;0.00;85.00;56.67;85.00;28.33;61.20;71.40;1;02.00;20.40;25.19;91.30;75.56;6.30;36.27;82.73;41.93;9.07;32.49;74.88;41.68;12.01;C4
+
+.. note:: You must define before which training images will be used to train the machine learning and the images be used to evaluate the model by clicking on the button ``Split Train || Evaluate Features``.
+
+.. _extract-feature-predict-label:
+
+Extract predict image features
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By clicking on the ``Predict Base Images`` button, you will extract all the features of each black pixel of each predict images.
+A CSV file will be created as the CSV described above but without the last column because we don't know yet which they are.
+
+Machine Learning
+++++++++++++++++
+
+Train
+^^^^^
+
+You can training the model by clicking on the button ``Train``.
+
+.. warning:: You must define before which training images will be used to train the machine learning and the images be used to evaluate the model by clicking on the button ``Split Train || Evaluate Features``.
+
+Evaluate
+^^^^^^^^
+
+You can training the model by clicking on the button ``Evaluate``.
+A confusion matrix will be generated, you can save it by clicking on ``Save Evaluate Result``.
+
+Confusion matrix : ::
+
+    [[ 762 1089 309 479 45 68]
+    [ 678 1478 476 1016 53 165]
+    [ 3 18 541 0 212 35]
+    [ 553 1469 377 1512 38 49]
+    [ 249 363 312 47 288 67]
+    [ 456 1116 260 280 681 967]]
+
+The rate recognition rate will be calculated with this matrix, it's the rate we want to improve.
+
+.. warning:: You must define before which training images will be used to train the machine learning and the images be used to evaluate the model by clicking on the button ``Split Train || Evaluate Features``.
+.. note:: You can save or load your model into the folder ``./workspace/machinelearning/svm``.
+
+Predict
+^^^^^^^
+
+You can now predict an image by clicking on ``Predict`` and choosing the CSV of the image you want to predict into the folder ``./workspace/features/predict``.
+A CSV will be generated into ``./workspace/machinelearning/results/imageName`` containing for each pixel of the image, a probability to be a pixel of the class X.
+
+.. warning:: You must have :ref:`extracted the features of the predict image<extract-feature-predict-label>` before.
+
+Result : ::
+
+    x y C0 C1 C2 C3 C4 C5 class
+    1 41 0.22407 0.00767 0.04453 0.64263 0.00922 0.07188 C3
+    1 42 0.20295 0.03285 0.02414 0.69076 0.02181 0.02749 C3
+    1 43 0.13441 0.18355 0.02237 0.31171 0.26187 0.08609 C3
+    1 44 0.18151 0.18843 0.02609 0.16158 0.38421 0.05817 C4
+    1 45 0.27240 0.19565 0.03152 0.14498 0.30924 0.04622 C4
+
+Viewer
+++++++
+
+View features
+^^^^^^^^^^^^^^
+
+After choosing features by clicking on the button ``Choose 2 features``, you can view if the choice is effective or not for your training images by clicking on ``View features``.
+More the samples are grouped more your choice is effective.
+
+.. figure::  images/Graph.png
+   :align:   center
+
+View Result
+^^^^^^^^^^^^
+
+Into the folder ``./workspace/machinelearning/results/imageName`` is created a result image during the prediction to summarise your results.
+
+.. figure::  images/Result.png
+   :align:   center

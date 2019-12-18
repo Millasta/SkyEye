@@ -1,0 +1,251 @@
+.. _code_label:
+
+Code Analyse
+=============
+
+Package - datastructure
+----------------------------
+
+Module - evaluation
+#############################
+.. automodule:: program.model.datastructure.evaluation
+
+Class - Evaluation
+***********************************************
+.. autoclass:: program.model.datastructure.evaluation.Evaluation
+   :members:
+   :private-members:
+   :special-members:
+
+Module - feature_table
+#############################
+.. automodule:: program.model.datastructure.feature_table
+
+Class - Individual
+***********************************************
+.. autoclass:: program.model.datastructure.feature_table.Individual
+   :members:
+   :private-members:
+   :special-members:
+
+Class - FeatureTable
+***********************************************
+.. autoclass:: program.model.datastructure.feature_table.FeatureTable
+   :members:
+   :private-members:
+   :special-members:
+
+Module - image
+#############################
+.. automodule:: program.model.datastructure.image
+
+Class - Image
+***********************************************
+.. autoclass:: program.model.datastructure.image.Image
+   :members:
+   :private-members:
+   :special-members:
+
+Module - labeled_pixel
+#############################
+.. automodule:: program.model.datastructure.labeled_pixel
+
+Class - LabeledPixel
+***********************************************
+.. autoclass:: program.model.datastructure.labeled_pixel.LabeledPixel
+   :members:
+   :private-members:
+   :special-members:
+
+Module - prediction
+#############################
+.. automodule:: program.model.datastructure.prediction
+
+Class - PredictionPixel
+***********************************************
+.. autoclass:: program.model.datastructure.prediction.PredictionPixel
+   :members:
+   :private-members:
+   :special-members:
+
+Class - Prediction
+***********************************************
+.. autoclass:: program.model.datastructure.prediction.Prediction
+   :members:
+   :private-members:
+   :special-members:
+
+Package - featureextraction
+----------------------------
+
+Module - feature
+#################
+
+.. automodule:: program.model.featureextraction.feature
+
+Class - Feature
+*****************
+.. autoclass:: program.model.featureextraction.feature.Feature
+   :members:
+   :private-members:
+   :special-members:
+
+Class - GrayValue
+****************************
+.. autoclass:: program.model.featureextraction.feature.GrayValue
+   :members:
+   :private-members:
+   :special-members:
+
+Class - MeanGrayValue
+********************************
+.. autoclass:: program.model.featureextraction.feature.MeanGrayValue
+   :members:
+   :private-members:
+   :special-members:
+
+Class - CalcDifference
+********************************
+.. autoclass:: program.model.featureextraction.feature.CalcDifference
+   :members:
+   :private-members:
+   :special-members:
+
+Class - GrayLevel
+********************************
+.. autoclass:: program.model.featureextraction.feature.GrayLevel
+   :members:
+   :private-members:
+   :special-members:
+
+Class - LocalBinaryPatterns
+********************************
+.. autoclass:: program.model.featureextraction.feature.LocalBinaryPatterns
+   :members:
+   :private-members:
+   :special-members:
+
+Class - DefinitionFeatureEnum
+********************************
+.. autoclass:: program.model.featureextraction.feature.DefinitionFeatureEnum
+   :members:
+   :private-members:
+   :special-members:
+
+Class - DefinitionFeature
+********************************
+.. autoclass:: program.model.featureextraction.feature.DefinitionFeature
+   :members:
+   :private-members:
+   :special-members:
+
+Module - feature_selector
+###########################
+
+.. automodule:: program.model.featureextraction.feature_selector
+
+Class - FeatureSelector
+**************************
+.. autoclass:: program.model.featureextraction.feature_selector.FeatureSelector
+   :members:
+   :private-members:
+   :special-members:
+
+Class - SequentialForwardSelection
+*************************************
+.. autoclass:: program.model.featureextraction.feature_selector.SequentialForwardSelection
+   :members:
+   :private-members:
+   :special-members:
+
+Class - SequentialForwardFloatingSelection
+*******************************************
+.. autoclass:: program.model.featureextraction.feature_selector.SequentialForwardFloatingSelection
+   :members:
+   :private-members:
+   :special-members:
+
+Module - image_features_extractor
+##################################
+.. automodule:: program.model.featureextraction.image_features_extractor
+
+Class - ImageFeaturesExtractor
+********************************
+.. autoclass:: program.model.featureextraction.image_features_extractor.ImageFeaturesExtractor
+   :members:
+   :private-members:
+   :special-members:
+
+Package - MachineLearning
+----------------------------
+
+Module - machinelearning
+#############################
+.. automodule:: program.model.machinelearning.machinelearning
+
+Class - RecognitionModel
+***********************************************
+.. autoclass:: program.model.machinelearning.machinelearning.RecognitionModel
+   :members:
+   :private-members:
+   :special-members:
+
+Class - SVM
+***********************************************
+.. autoclass:: program.model.machinelearning.machinelearning.SVM
+   :members:
+   :private-members:
+   :special-members:
+
+Class - RandomForest
+***********************************************
+.. autoclass:: program.model.machinelearning.machinelearning.RandomForest
+   :members:
+   :private-members:
+   :special-members:
+
+Package - ResultBuilder
+----------------------------
+
+Module - resultbuilder
+#############################
+.. automodule:: program.model.resultbuilder.resultbuilder
+
+Class - ResultBuilder
+***********************************************
+.. autoclass:: program.model.resultbuilder.resultbuilder.ResultBuilder
+   :members:
+   :private-members:
+   :special-members:
+
+Class - BinaryImageBuilder
+***********************************************
+.. autoclass:: program.model.resultbuilder.resultbuilder.BinaryImageBuilder
+   :members:
+   :private-members:
+   :special-members:
+
+Class - GrayImageBuilder
+***********************************************
+.. autoclass:: program.model.resultbuilder.resultbuilder.GrayImageBuilder
+   :members:
+   :private-members:
+   :special-members:
+
+Class - ClassImageBuilder
+***********************************************
+.. autoclass:: program.model.resultbuilder.resultbuilder.ClassImageBuilder
+   :members:
+   :private-members:
+   :special-members:
+
+Module - workspace
+#############################
+.. automodule:: program.model.workspace
+
+Class - Workspace
+***********************************************
+.. autoclass:: program.model.workspace.Workspace
+   :members:
+   :private-members:
+   :special-members:
