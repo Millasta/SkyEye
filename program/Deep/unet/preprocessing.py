@@ -6,11 +6,12 @@ import skimage.io as io
 import skimage.transform as trans
 from PIL import Image
 
-Talus = [30,144,255] # Blue
-Charbonniere = [255,69,0] # Red
-Unlabelled = [255,255,255] # White
+# Grey scale
+TalusScale = 100
+CharbonniereScale = 200
+Unlabelled = 255 # White
 
-COLOR_DICT = np.array([Charbonniere, Talus, Unlabelled])
+COLOR_DICT = np.array([CharbonniereScale, TalusScale, Unlabelled])
 
 # Fusion of binary masks into a colored unique one
 def maskFusion():
@@ -23,7 +24,7 @@ def maskFusion():
         talusMaskArray = io.imread("data/talus/" + file);
 
         # Nouveau masque
-        newMask = Image.new('RGB', (400, 400), color='white')
+        newMask = Image.new('L', (400, 400)) #
         newMaskArray = np.array(newMask)
         print(charboMaskArray.shape)
 
@@ -35,7 +36,7 @@ def maskFusion():
                 if y >= 400:
                     continue
                 if talusMaskArray[x, y] == False:  # Pixel noir
-                    newMaskArray[x, y] = Talus
+                    newMaskArray[x, y] = TalusScale
 
         # Charbonniere
         for x in range(charboMaskArray.shape[0]): # Width
@@ -45,15 +46,13 @@ def maskFusion():
                 if y >= 400:
                     continue
                 if charboMaskArray[x,y] == False: # Pixel noir
-                    newMaskArray[x,y] = Charbonniere
+                    newMaskArray[x,y] = CharbonniereScale
 
         # Création de l'image
         newImage = "data/classes/" + file.split(".")[0] + ".png"
         io.imsave(newImage, newMaskArray)
         print(newImage)
     print("Done !")
-
-maskFusion();
 
 # From: https://github.com/zhixuhao/une
 
@@ -156,3 +155,4 @@ def saveResult(save_path,npyfile,flag_multi_class = False,num_class = 2):
     for i,item in enumerate(npyfile):
         img = labelVisualize(num_class,COLOR_DICT,item) if flag_multi_class else item[:,:,0]
         io.imsave(os.path.join(save_path,"%d_predict.png"%i),img)
+
