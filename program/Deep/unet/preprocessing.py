@@ -6,10 +6,11 @@ import skimage.io as io
 import skimage.transform as trans
 from PIL import Image
 
-# Grey scale
-TalusScale = 100
-CharbonniereScale = 200
-Unlabelled = 255 # White
+# Grey scale 100, 200, 255
+# Color scale (135,206,250), (255,165,0), (255, 255, 255)
+TalusScale = (40,136,255)
+CharbonniereScale = (255,165,0)
+Unlabelled = (255, 255, 255) # White
 
 COLOR_DICT = np.array([CharbonniereScale, TalusScale, Unlabelled])
 
@@ -24,7 +25,7 @@ def maskFusion():
         talusMaskArray = io.imread("data/talus/" + file);
 
         # Nouveau masque
-        newMask = Image.new('L', (400, 400)) #
+        newMask = Image.new('RGB', (400, 400), color="white") #
         newMaskArray = np.array(newMask)
         print(charboMaskArray.shape)
 
@@ -78,8 +79,8 @@ def adjustData(img,mask,flag_multi_class,num_class):
 
 
 
-def trainGenerator(batch_size,train_path,image_folder,mask_folder,aug_dict,image_color_mode = "grayscale",
-                    mask_color_mode = "grayscale",image_save_prefix  = "image",mask_save_prefix  = "mask",
+def trainGenerator(batch_size,train_path,image_folder,mask_folder,aug_dict,image_color_mode = "rgb",
+                    mask_color_mode = "rgb",image_save_prefix  = "image",mask_save_prefix  = "mask",
                     flag_multi_class = False,num_class = 2,save_to_dir = None,target_size = (256,256),seed = 1):
     '''
     can generate image and mask at the same time
@@ -115,7 +116,7 @@ def trainGenerator(batch_size,train_path,image_folder,mask_folder,aug_dict,image
 
 
 
-def testGenerator(test_path,num_image = 30,target_size = (256,256),flag_multi_class = False,as_gray = True):
+def testGenerator(test_path,num_image = 20,target_size = (256,256),flag_multi_class = False,as_gray = False):
     for i in range(num_image):
         img = io.imread(os.path.join(test_path,"%d.png"%i),as_gray = as_gray)
         img = img / 255

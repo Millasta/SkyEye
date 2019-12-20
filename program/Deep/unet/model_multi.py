@@ -1,17 +1,10 @@
-import numpy as np
-import os
-import skimage.io as io
-import skimage.transform as trans
-import numpy as np
 from keras.models import *
 from keras.layers import *
 from keras.optimizers import *
-from keras.callbacks import ModelCheckpoint, LearningRateScheduler
-from keras import backend as keras
 
-# From: https://github.com/zhixuhao/unet/
+IMG_SIZE = 256
 
-def unet(pretrained_weights=None, input_size=(256, 256, 1)):
+def unet(pretrained_weights=None, input_size=(IMG_SIZE, IMG_SIZE, 3),num_class=3):
     inputs = Input(input_size)
     conv1 = Conv2D(64, 3, activation='relu', padding='same', kernel_initializer='he_normal')(inputs)
     conv1 = Conv2D(64, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv1)
@@ -33,6 +26,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
 
     up6 = Conv2D(512, 2, activation='relu', padding='same', kernel_initializer='he_normal')(
         UpSampling2D(size=(2, 2))(drop5))
+
     merge6 = concatenate([drop4, up6], axis=3)
     conv6 = Conv2D(512, 3, activation='relu', padding='same', kernel_initializer='he_normal')(merge6)
     conv6 = Conv2D(512, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv6)
@@ -54,18 +48,18 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     merge9 = concatenate([conv1, up9], axis=3)
     conv9 = Conv2D(64, 3, activation='relu', padding='same', kernel_initializer='he_normal')(merge9)
     conv9 = Conv2D(64, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv9)
-    conv9 = Conv2D(2, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv9)
-
-    conv10 = Conv2D(1, 1, activation='sigmoid')(conv9)
-    loss_function = 'binary_crossentropy'
-
+    conv9 = Conv2D(num_class, 3, activation='relu', padding='same', kernel_initializer='he_normal')(conv9)
+    if num_class == 2:
+        conv10 = Conv2D(1, 1, activation='sigmoid')(conv9)
+        loss_function = 'binary_crossentropy'
+    else:
+        conv10 = Conv2D(num_class, 1, activation='softmax')(conv9)
+        loss_function = 'categorical_crossentropy'
     model = Model(input=inputs, output=conv10)
 
-    model.compile(optimizer=Adam(lr=1e-4), loss=loss_function, metrics=['accuracy'])
-
-    # model.summary()
+    model.compile(optimizer=Adam(lr=1e-4), loss=loss_function, metrics=["accuracy"])
+    model.summary()
 
     if (pretrained_weights):
         model.load_weights(pretrained_weights)
-
     return model
