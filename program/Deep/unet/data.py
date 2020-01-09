@@ -4,6 +4,8 @@ import os
 import glob
 import skimage.io as io
 import skimage.transform as trans
+import skimage as sk
+import cv2
 from PIL import Image
 
 # Grey scale 100, 200, 255
@@ -12,7 +14,7 @@ TalusScale = (40,136,255)
 CharbonniereScale = (255,165,0)
 Unlabelled = (255, 255, 255) # White
 
-COLOR_DICT = np.array([CharbonniereScale, TalusScale, Unlabelled])
+COLOR_DICT = np.array([Unlabelled, CharbonniereScale, TalusScale])
 
 # Fusion of binary masks into a colored unique one
 def maskFusion():
@@ -59,29 +61,45 @@ def maskFusion():
 
 def adjustData(img,mask,flag_multi_class,num_class):
     if(flag_multi_class):
-        img = img / 255
-        mask = mask[:,:,:,0] if(len(mask.shape) == 4) else mask[:,:,0]
-        new_mask = np.zeros(mask.shape + (num_class,))
-        for i in range(num_class):
-            #for one pixel in the image, find the class in mask and convert it into one-hot vector
+        #new_mask = np.zeros(mask.shape + (num_class,))
+        new_mask = np.zeros(mask.shape)
+
+        ### for one pixel in the image, find the class in mask and convert it into one-hot vector
+        for img_i in range(img.shape[0]): # For each image of the batch
+            for x_i in range(img.shape[1]): # X
+                for y_i in range(img.shape[2]): # Y
+                    for i in range(len(COLOR_DICT)):
+                        if (COLOR_DICT[i] == tuple(mask[img_i][x_i][y_i])).all():
+                            new_mask[img_i][x_i][y_i][i] = 1
+                            break
+
+        #for i in range(num_class):
+            ### for one pixel in the image, find the class in mask and convert it into one-hot vector
             #index = np.where(mask == i)
             #index_mask = (index[0],index[1],index[2],np.zeros(len(index[0]),dtype = np.int64) + i) if (len(mask.shape) == 4) else (index[0],index[1],np.zeros(len(index[0]),dtype = np.int64) + i)
             #new_mask[index_mask] = 1
-            new_mask[mask == i,i] = 1
-        new_mask = np.reshape(new_mask,(new_mask.shape[0],new_mask.shape[1]*new_mask.shape[2],new_mask.shape[3])) if flag_multi_class else np.reshape(new_mask,(new_mask.shape[0]*new_mask.shape[1],new_mask.shape[2]))
+            #new_mask[mask == i,i] = 1
+        #new_mask = np.reshape(new_mask,(new_mask.shape[0],new_mask.shape[1]*new_mask.shape[2],new_mask.shape[3])) if flag_multi_class else np.reshape(new_mask,(new_mask.shape[0]*new_mask.shape[1],new_mask.shape[2]))
         mask = new_mask
+
+        #mask = mask[:, :, :, 0] if (len(mask.shape) == 4) else mask[:, :, 0]
+        #new_mask = np.zeros(mask.shape + (num_class,))
+        #for i in range(num_class):
+        #    new_mask[mask == i, i] = 1
+        #mask = new_mask
     elif(np.max(img) > 1):
         img = img / 255
-        mask = mask /255
+        mask = mask / 255
         mask[mask > 0.5] = 1
         mask[mask <= 0.5] = 0
+    img = img / 255
     return (img,mask)
 
 
 
 def trainGenerator(batch_size,train_path,image_folder,mask_folder,aug_dict,image_color_mode = "rgb",
                     mask_color_mode = "rgb",image_save_prefix  = "image",mask_save_prefix  = "mask",
-                    flag_multi_class = False,num_class = 2,save_to_dir = None,target_size = (256,256),seed = 1):
+                    flag_multi_class = True,num_class = 3,save_to_dir = None,target_size = (256,256),seed = 1):
     '''
     can generate image and mask at the same time
     use the same seed for image_datagen and mask_datagen to ensure the transformation for image and mask is the same
@@ -115,14 +133,14 @@ def trainGenerator(batch_size,train_path,image_folder,mask_folder,aug_dict,image
         yield (img,mask)
 
 
-
 def testGenerator(test_path,num_image = 20,target_size = (256,256),flag_multi_class = False,as_gray = False):
-    for i in range(num_image):
-        img = io.imread(os.path.join(test_path,"%d.png"%i),as_gray = as_gray)
+    for i in range(num_image+1):
+        img = io.imread(os.path.join(test_path,"%d.png"%i),as_gray = False)
+        img = sk.color.gray2rgb(img)
         img = img / 255
         img = trans.resize(img,target_size)
-        img = np.reshape(img,img.shape+(1,)) if (not flag_multi_class) else img
-        img = np.reshape(img,(1,)+img.shape)
+        img = np.reshape(img,(1,)+img.shape)# if (not flag_multi_class) else img
+        #img = np.reshape(img,(1,)+img.shape)
         yield img
 
 
@@ -152,8 +170,19 @@ def labelVisualize(num_class,color_dict,img):
 
 
 
-def saveResult(save_path,npyfile,flag_multi_class = False,num_class = 2):
+def saveResult2(save_path,npyfile,flag_multi_class = True,num_class = 2):
     for i,item in enumerate(npyfile):
         img = labelVisualize(num_class,COLOR_DICT,item) if flag_multi_class else item[:,:,0]
         io.imsave(os.path.join(save_path,"%d_predict.png"%i),img)
+
+def saveResult(save_path,npyfile,flag_multi_class = True,num_class = 2, threshold=127):
+    for i, item in enumerate(npyfile):
+        img = item
+        img_std = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.uint8)
+        for row in range(len(img)):
+            for col in range(len(img[row])):
+                print(img[row][col])
+                num = np.argmax(img[row][col])
+                img_std[row][col] = COLOR_DICT[num]
+        cv2.imwrite(os.path.join(save_path, ("%s_predict.png") % (i)), img_std)
 
