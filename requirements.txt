@@ -3,7 +3,7 @@ cycler==0.10.0
 matplotlib==2.0.0
 numpy==1.12.1+mkl
 olefile==0.44
-opencv-python==3.2.0.6
+opencv-python==4.2.0.32
 packaging==16.8
 Pillow==6.2.0
 pyparsing==2.2.0
