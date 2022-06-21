@@ -1,7 +1,7 @@
 appdirs==1.4.3
 cycler==0.10.0
 matplotlib==2.0.0
-numpy==1.12.1+mkl
+numpy==1.22.0rc1
 olefile==0.44
 opencv-python==3.2.0.6
 packaging==16.8
